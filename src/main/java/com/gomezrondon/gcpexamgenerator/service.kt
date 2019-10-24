@@ -20,6 +20,7 @@ class GenerateQuestionService{
                     val split = s.split("~")
                     readLines.get(index).answer = split[1].toLowerCase().trim()
                     readLines.get(index).explanation = split[2].trim()
+                   // println(readLines.get(index))
                 }
 
         return readLines
