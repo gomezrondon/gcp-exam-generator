@@ -34,7 +34,7 @@ class GenerateQuestionService{
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
             val random = listOfQuestions.random()
 
-            val split = random.question.split("""(?=[A-Z]\.\s)""".toRegex()).flatMap { it.split("""\\n""".toRegex()) }
+            val split = random.question.split("""\s(?=[A-Z]\.\s)""".toRegex()).flatMap { it.split("""\\n""".toRegex()) }
             print("$count) Question: ")
             split.forEach { println(it) }
             println("\n")
