@@ -63,9 +63,7 @@
 63~ Which specialized service supports both batch and stream processing workflows? A. Cloud Dataproc B. Bigquery C. Cloud Datastore D. AutoML
 64~ You have a Python application you’d like to run in a scalable environment with the least amount of management overhead. Which GCP product would you select? A. App Engine flexible environment B. Cloud Engine C. App Engine standard environment D. Kubernetes Engine
 65~ A product manager at your company reports that customers are complaining about the reliability of one of your applications. The application is crashing periodically, but developers have not found a common pattern that triggers the crashes. They are concerned that they do not have good insight into the behavior of the application and want to perform a detailed review of all crash data. Which Stackdriver tool would you use to view consolidated crash information? A. DataProc B. Monitoring C. Logging D. Error Reporting
-
-
-
+66~Cloud Shell provides you with which of the following? (Select all that apply). A. 5 GB of persistent storage (/home) B. Built-in authorization for access to resources and instances C. Command-line access to a free temporary Compute Engine VM D. a command-line tool that requires you to install Cloud SDK
 
 
 
