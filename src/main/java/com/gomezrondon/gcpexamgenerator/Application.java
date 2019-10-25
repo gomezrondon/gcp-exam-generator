@@ -1,16 +1,13 @@
 package com.gomezrondon.gcpexamgenerator;
 
-import jdk.jshell.JShell;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.shell.Shell;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellComponent;
 
 import java.util.List;
-import java.util.stream.IntStream;
+
 
 @SpringBootApplication
 public class Application {
@@ -42,11 +39,7 @@ class ShellCommand{
 
 	}
 
-	@ShellMethod(value = "value of connected")
-	public void con() {
-		System.out.println(connected);
-		JShell.builder().build();
-	}
+
 
 
 }
