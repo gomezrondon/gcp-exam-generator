@@ -36,7 +36,7 @@ class GenerateQuestionService{
 
             if (!question.contains(random)) {
                 val split = random.question.split("""(?=[A-Z]\.\s)""".toRegex())
-
+                print("$count) Question:")
                 split.forEach { println(it) }
                 println("\n")
                 count++
@@ -44,6 +44,7 @@ class GenerateQuestionService{
                 print("Response?: ")
                 question.add(random)
                 responses.add(readLine().toString().toLowerCase())
+                println("\n")
             }
 
         }
@@ -70,6 +71,7 @@ class GenerateQuestionService{
         println("Score: $porcentage%")
         println("============ Answers ============")
         wrongList.forEachIndexed{index, it -> println("${index+1}. ${it.answer.toUpperCase()}. ${it.explanation}")}
+        println("\n")
 
     }
 
