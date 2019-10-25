@@ -31,21 +31,21 @@ class GenerateQuestionService{
         var question = mutableListOf<Question>()
         var responses = mutableListOf<String>()
         var count = 1
-        while (count <= numberOption){
+        while (count <= numberOption && listOfQuestions.isNotEmpty()){
             val random = listOfQuestions.random()
 
-            if (!question.contains(random)) {
-                val split = random.question.split("""(?=[A-Z]\.\s)""".toRegex())
-                print("$count) Question:")
-                split.forEach { println(it) }
-                println("\n")
-                count++
+            val split = random.question.split("""(?=[A-Z]\.\s)""".toRegex()).flatMap { it.split("""\\n""".toRegex()) }
+            print("$count) Question: ")
+            split.forEach { println(it) }
+            println("\n")
+            count++
 
-                print("Response?: ")
-                question.add(random)
-                responses.add(readLine().toString().toLowerCase())
-                println("\n")
-            }
+            print("Response?: ")
+            question.add(random)
+            responses.add(readLine().toString().toLowerCase())
+            println("\n")
+
+            listOfQuestions.remove(random)
 
         }
 
