@@ -16,10 +16,11 @@ class GenerateQuestionService{
 
         File("""questions${File.separator}answers.txt""").readLines()
                 .filter { it.isNotEmpty() }
-                .forEachIndexed { index, s ->
-                    val split = s.split("~")
-                    readLines.get(index).answer = split[1].toLowerCase().trim()
-                    readLines.get(index).explanation = split[2].trim()
+                .forEach {
+                    val split = it.split("~")
+                    val index = split[0].toInt()
+                    readLines.first { it.id ==index }.answer = split[1].toLowerCase().trim()
+                    readLines.first { it.id ==index }.explanation = split[2].trim()
                    // println(readLines.get(index))
                 }
 
@@ -28,15 +29,30 @@ class GenerateQuestionService{
 
     fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int) {
 
+        val optionsList =  listOf<String>("A. ","B. ","C. ","D. ","E. ","F. ","G. ")
+        var tempList = optionsList.toMutableList()
+        var randomOptionList = mutableListOf<String>()
+
+        while(tempList.size > 0) {
+            val temp = tempList.random()
+            randomOptionList.add(temp)
+            tempList.remove(temp)
+        }
+
+
         var question = mutableListOf<Question>()
         var responses = mutableListOf<String>()
         var count = 1
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
             val random = listOfQuestions.random()
 
-            val split = random.question.split("""\s(?=[A-Z]\.\s)""".toRegex()).flatMap { it.split("""\\n""".toRegex()) }
+            val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex()) //.flatMap { it.split("""\\n""".toRegex()) }
+
             print("$count) Question: ")
-            split.forEach { println(it) }
+            split.slice(0..0).flatMap { it.split("""\\n""".toRegex()) }.forEach { println(it) }
+
+            split.slice(1..split.size -1).forEach { println(it) }
+           // split.forEach { println(it) }
             println("\n")
             count++
 
