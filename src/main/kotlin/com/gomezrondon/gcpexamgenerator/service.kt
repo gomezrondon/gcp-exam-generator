@@ -29,16 +29,6 @@ class GenerateQuestionService{
 
     fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int) {
 
-        val optionsList =  listOf<String>("A. ","B. ","C. ","D. ","E. ","F. ","G. ")
-        var tempList = optionsList.toMutableList()
-        var randomOptionList = mutableListOf<String>()
-
-        while(tempList.size > 0) {
-            val temp = tempList.random()
-            randomOptionList.add(temp)
-            tempList.remove(temp)
-        }
-
 
         var question = mutableListOf<Question>()
         var responses = mutableListOf<String>()
@@ -51,17 +41,49 @@ class GenerateQuestionService{
             print("$count) Question: ")
             split.slice(0..0).flatMap { it.split("""\\n""".toRegex()) }.forEach { println(it) }
 
-            split.slice(1..split.size -1).forEach { println(it) }
-           // split.forEach { println(it) }
+            val list = split.slice(1..split.size - 1)
+
+            val randList = randomizeList(list)
+
+/*            println("\n")
+            randList.forEach { println(it) }
+            println(random.answer)
+            println("\n")
+            split.forEach { println(it) }
+            println("\n")*/
+
+            listOfQuestions.remove(random)
+            //we remap the options randomly
+            random.remapOptions(randList)
+
+  /*          println(random.answer + " respuesta correcta")
+            println("\n")*/
+
+
+            list.map {
+                val oldOption = it.split(". ").get(0)
+
+                val newOption = randList.filter { it.split("|").get(1) == oldOption }.map { it.split("|").get(0) }.first()
+
+                val newPosition =   it.replace("""[A-Z]\.\s""".toRegex(),"$newOption. ")
+                newPosition
+
+            }.sorted().forEach { println(it) }
+
             println("\n")
             count++
 
             print("Response?: ")
+
+
+
             question.add(random)
-            responses.add(readLine().toString().toLowerCase())
+            var response = readLine().toString().toLowerCase()
+
+            responses.add(response)
             println("\n")
 
-            listOfQuestions.remove(random)
+
 
         }
 
@@ -91,10 +113,39 @@ class GenerateQuestionService{
 
     }
 
+    private fun randomizeList(list: List<String>):List<String>  {
+        val optionsList =  listOf<String>("A","B","C","D","E","F","G")
 
+        var tempList = list.map { it.split(".").get(0) }.toMutableList()
+        var randomOptionList = list.toMutableList()
+
+        var index = 0
+        while(tempList.size > 0) {
+            val random = tempList.random()
+            randomOptionList.set(index, optionsList.get(index)+"|"+random)
+            tempList.remove(random)
+            index++
+        }
+
+        return randomOptionList
+    }
 
 
 }
 
 
-data class Question(val id:Int, val question: String, var answer:String="N/A", var explanation:String="N/A")
+data class Question(val id:Int, val question: String, var answer:String="N/A", var explanation:String="N/A"){
+
+    fun remapOptions(randList: List<String>) {
+        // "new position A|C old position "
+        val mapResponse = this.answer.split(" ").map { pepe ->
+            val newPosition = randList.map { it.toLowerCase() }
+                    .filter { valor -> valor.split("|").get(1) == pepe }
+                    .map { valor -> valor.split("|").get(0) }
+                    .first()
+            newPosition
+        }.sorted().joinToString(" ")
+
+        this.answer = mapResponse
+    }
+}
