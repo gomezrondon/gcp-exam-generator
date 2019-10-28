@@ -1,5 +1,6 @@
 package com.gomezrondon.gcpexamgenerator
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -8,20 +9,27 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class Application(private val service:GenerateQuestionService):CommandLineRunner{
 
+    @Value("\${test.generator.execute-at-start:true}")
+    val executeAtStart:Boolean = true
+
     override fun run(vararg args: String?) {
 
-        val strings = service.readFile()
-        println("There are ${strings.size} Questions!")
-        println("")
-        print("Select number of Questions: 5, 10, 20 ...: ");
-        val numberOption = readLine().toString().toLowerCase()
+        if (executeAtStart) {
+            val questionsList = service.loadQuestions()
+            println("There are ${questionsList.size} Questions!")
+            println("")
+            print("Select number of Questions: 5, 10, 20 ...: ");
+            val numberOption = readLine().toString().toLowerCase()
 
-        var questions = service.generateQuestion(strings as MutableList<Question>, numberOption.toInt());
-        val responses = service.askQuestions(questions)
-        val results = service.evaluateResults(questions, responses)
+            var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt());
+            val responses = service.askQuestions(questions)
+            val results = service.evaluateResults(questions, responses)
 
-        //printing results
-        results.forEach { println(it) }
+            //printing results
+            results.forEach { println(it) }
+        }
+
+
     }
 
 }

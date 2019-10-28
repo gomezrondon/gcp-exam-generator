@@ -28,9 +28,10 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test") {
-		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
-	}
+	testImplementation("org.spockframework:spock-core:1.2-groovy-2.4")
+	testImplementation("org.spockframework:spock-spring:1.2-groovy-2.4")
+	//compile("de.jodamob.kotlin:kotlin-runner-spock:0.3.1")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:2.1.1.RELEASE")
 }
 
 tasks.withType<Test> {

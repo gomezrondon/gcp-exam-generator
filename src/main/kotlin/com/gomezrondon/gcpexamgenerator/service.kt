@@ -7,7 +7,7 @@ import java.io.File
 @Service
 class GenerateQuestionService{
 
-    fun readFile(): List<Question> {
+    fun loadQuestions(): List<Question> {
         val readLines = File("""questions${File.separator}questions.txt""").readLines()
                 .takeWhile { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
