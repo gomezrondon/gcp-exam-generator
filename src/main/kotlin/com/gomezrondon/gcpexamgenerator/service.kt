@@ -37,10 +37,10 @@ class GenerateQuestionService{
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
             val random = listOfQuestions.random()
 
-            val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex()) //.flatMap { it.split("""\\n""".toRegex()) }
+            val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex())
 
       //      print("$count) Question: ")
-            val temp = split.slice(0..0).flatMap { it.split("""\\n""".toRegex()) }.joinToString(" ")
+            val temp = split.slice(0..0).joinToString(" ")
 
             val list = split.slice(1..split.size - 1)
 
@@ -97,9 +97,12 @@ class GenerateQuestionService{
 
 
         questions.forEachIndexed { index,  qton ->
-            print("$index) Question: ")
+            val tempIndex = index + 1
+            println("$tempIndex) Question: ")
             qton.question.split("|").forEach {
-                println(it)
+                it.split(" ").chunked(20).map { it.joinToString(" ") }.forEach {
+                    println(it)
+                }
             }
 
             println("\n")
