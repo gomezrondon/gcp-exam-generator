@@ -28,89 +28,50 @@ class GenerateQuestionService{
         return readLines
     }
 
-    fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int) {
+    fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int) : MutableList<Question>{
 
 
-        var question = mutableListOf<Question>()
-        var responses = mutableListOf<String>()
+        var question: MutableList<Question> = mutableListOf<Question>()
+     //   var responses = mutableListOf<String>()
         var count = 1
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
             val random = listOfQuestions.random()
 
             val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex()) //.flatMap { it.split("""\\n""".toRegex()) }
 
-            print("$count) Question: ")
-            split.slice(0..0).flatMap { it.split("""\\n""".toRegex()) }.forEach { println(it) }
+      //      print("$count) Question: ")
+            val temp = split.slice(0..0).flatMap { it.split("""\\n""".toRegex()) }.joinToString(" ")
 
             val list = split.slice(1..split.size - 1)
 
             val randList = randomizeList(list)
 
-/*            println("\n")
-            randList.forEach { println(it) }
-            println(random.answer)
-            println("\n")
-            split.forEach { println(it) }
-            println("\n")*/
 
             listOfQuestions.remove(random)
             //we remap the options randomly
             random.remapOptions(randList)
 
-  /*          println(random.answer + " respuesta correcta")
-            println("\n")*/
 
-
-            list.map {
+            val reMappedOptions = list.map {
                 val oldOption = it.split(". ").get(0)
 
                 val newOption = randList.filter { it.split("|").get(1) == oldOption }.map { it.split("|").get(0) }.first()
 
-                val newPosition =   it.replace("""[A-Z]\.\s""".toRegex(),"$newOption. ")
+                val newPosition = it.replace("""[A-Z]\.\s""".toRegex(), "$newOption. ")
                 newPosition
 
-            }.sorted().forEach { println(it) }
+            }.sorted().joinToString("|")
 
-            println("\n")
+            val newQuestion = temp +"|"+ reMappedOptions
+            random.question = newQuestion
+
             count++
 
-            print("Response?: ")
-
-
-
             question.add(random)
-            var response = readLine().toString().toLowerCase()
-
-            responses.add(response)
-            println("\n")
-
-
 
         }
 
-        var wrongList = mutableListOf<Question>()
-        var correct = 0
-        var wrong = 0
-        responses.forEachIndexed { index, response ->
-            if (question.get(index).answer == response) {
-                correct ++
-                wrongList.add(question.get(index).copy(explanation = "OK"))
-            }else{
-                wrong ++
-                wrongList.add(question.get(index))
-            }
-        }
-
-        val total = correct + wrong
-        println("Total questions: $total")
-        println("Correct: $correct")
-        println("wrong: $wrong")
-        val temp = correct.toDouble()*100
-        val porcentage:Double = temp/total.toDouble()
-        println("Score: $porcentage%")
-        println("============ Answers ============")
-        wrongList.forEachIndexed{index, it -> println("${index+1}. ${it.answer.toUpperCase()}. ${it.explanation}")}
-        println("\n")
+        return question
 
     }
 
@@ -131,11 +92,65 @@ class GenerateQuestionService{
         return randomOptionList
     }
 
+    fun askQuestions(questions: MutableList<Question>):MutableList<String> {
+        var responses: MutableList<String> = mutableListOf<String>()
+
+
+        questions.forEachIndexed { index,  qton ->
+            print("$index) Question: ")
+            qton.question.split("|").forEach {
+                println(it)
+            }
+
+            println("\n")
+            print("Response?: ")
+            var response = readLine().toString().toLowerCase()
+
+            responses.add(response)
+            println("\n")
+
+        }
+
+        return responses
+    }
+
+    fun evaluateResults( questions: MutableList<Question>, responses:MutableList<String>): List<String> {
+        var printResult = mutableListOf<String>()
+        var wrongList = mutableListOf<Question>()
+        var correct = 0
+        var wrong = 0
+        responses.forEachIndexed { index, response ->
+            if (questions.get(index).answer == response) {
+                correct ++
+                wrongList.add(questions.get(index).copy(explanation = "OK"))
+            }else{
+                wrong ++
+                wrongList.add(questions.get(index))
+            }
+        }
+
+        val total = correct + wrong
+        printResult.add("Total questions: $total")
+        printResult.add("Correct: $correct")
+        printResult.add("wrong: $wrong")
+        val temp = correct.toDouble()*100
+        val porcentage:Double = temp/total.toDouble()
+        printResult.add("Score: $porcentage%")
+        printResult.add("============ Answers ============")
+        wrongList.forEachIndexed{index, it ->
+            printResult.add("${index+1}. ${it.answer.toUpperCase()}. ${it.explanation}")
+        }
+
+        printResult.add("\n")
+
+        return printResult
+    }
+
 
 }
 
 
-data class Question(val id:Int, val question: String, var answer:String="N/A", var explanation:String="N/A"){
+data class Question(val id:Int, var question: String, var answer:String="N/A", var explanation:String="N/A"){
 
     fun remapOptions(randList: List<String>) {
         // "new position A|C old position "
