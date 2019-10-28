@@ -10,6 +10,7 @@ class GenerateQuestionService{
     fun readFile(): List<Question> {
         val readLines = File("""questions${File.separator}questions.txt""").readLines()
                 .takeWhile { it.isNotEmpty() }
+                .filter { !it.startsWith("---") }
                 .map { it.split("~") }
                 .map { Question(it[0].toInt(),it[1].trim())}
 

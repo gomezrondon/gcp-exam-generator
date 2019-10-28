@@ -9,9 +9,13 @@ import org.springframework.boot.runApplication
 class Application(private val service:GenerateQuestionService):CommandLineRunner{
 
     override fun run(vararg args: String?) {
-        print("Select number of Questions: 5, 10, 20: ");
-        val numberOption = readLine().toString().toLowerCase()
+
         val strings = service.readFile()
+        println("There are ${strings.size} Questions!")
+        println("")
+        print("Select number of Questions: 5, 10, 20 ...: ");
+        val numberOption = readLine().toString().toLowerCase()
+
         service.generateQuestion(strings as MutableList<Question>, numberOption.toInt());
     }
 
