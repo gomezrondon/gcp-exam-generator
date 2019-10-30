@@ -420,17 +420,4 @@
 405~ Your company has reserved a monthly budget for your project. You want to be informed automatically of your project spend so that you can take action when you approach the limit. What should you do?   A. Link a credit card with a monthly limit equal to your budget.  B. Create a budget alert for 50%, 90%, and 100% of your total monthly  budget.  C. In App Engine Settings, set a daily budget at the rate of 1/30 of your monthly budget.  D. In the GCP Console, conﬁgure billing export to Bnguery. Create a saved view that queries your total spend
 406~ You have a project using Bnguery. You want to list all Bnguery jobs for that project. You want to set this project as the default for the bq command-line tool. What should you do?   A. Use 'gcloud conflg set project' to set the default project.  B. Use "bq conﬁg set project" to set the default project.  C. Use ‘gcloud generate conﬁg-url" to generate a URL to the Google Cloud Platform Console to set the default project.  D. Use “bq generate conﬁg-url“ to generate a URL to the Google Cloud Platform Console to set the default project.
 407~ Your project has all its Compute Engine resources in the europewest1 region. You want to set europe-west1 as the default region for gcloud commands. What should you do?   A. Use Cloud Shell instead of the command line interface of your device. Launch Cloud Shell after you navigate to a resource in the europe-west1 region. The europe-west1 region will automatically become the default region. B. Use "gcloud cong set compute/region europe-west1" to set the default region for future gcloud commands. C. Use "gcloud cong set compute/zone europe-west1" to set the default region for future gcloud commands. D. Create a VPN from on-premises to a subnet in europe-west1, and use that connection when executing gcloud commands
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+408~ You developed a new application for App Engine and are ready to deploy it to production. You need to estimate the costs of running your application on Google Cloud Platform as accurately as possible. What should you do?   A. Create a YAML le with the expected usage. Pass this le to the "gcloud app estimate" command to get an accurate estimation. B. Multiply the costs of your application when it was in development by the number of expected users to get an accurate estimation. C. Use the pricing calculator for App Engine to get an accurate estimation of the expected charges. D. Create a ticket with Google Cloud Billing Support to get an accurate estimation.

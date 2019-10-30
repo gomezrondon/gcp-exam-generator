@@ -406,3 +406,4 @@
 405~ B~Is correct because a budget alert will warn you when you reach the limits set.
 406~ A ~is correct because you need to use gcloud to manage the cong/defaults
 407~ B ~is correct because this will ensure that the relevant region is used when not overwritten by a command parameter
+408~ C ~is correct because this is the proper way to estimate charges.
