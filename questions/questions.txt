@@ -411,6 +411,9 @@
 397~You are generating an estimate of the cost of using BigQuery. One of the parameters is Query Pricing. You have to specify a value in TB units. What is the value you are specifying? A. The amount of data stored in BigQuery B. The amount of data returned by the query C. The amount of data scanned by the query D. The amount of data in Cloud Storage bucket
 398~Why do you need to specify the operating system to be used when estimating the cost of a VM? A. All operating systems are charged a fixed rate. B. Some operating systems incur a cost. C. It’s not necessary; it is only included for documentation. D. To estimate the cost of Bring Your Own License configurations.
 399~You want to create a custom metric for use in Stackdriver Monitoring but do not want to use the low-level Stackdriver API. What is an alternative open source option for working with custom metrics? A. Prometheus B. OpenCensus C. Grafana D. Nagios
+--- more custom questions
+400~What's the beneﬁt of writing templates for your Deployment Manager conﬁguration? A. Allows you to hardcode properties for your resources B. Ensure that one resource is created before another; otherwise, resources will be created in parallel C. Allows you to abstract part of your configuration into individual building blocks that you can reuse
+401~What does Google Cloud Platform Marketplace offer? A. A centralized billing platform for all GCP services and applications B.Production-grade solutions from third-party vendors who have already created their own deployment configurations based on Deployment Manager C.A platform for trading VM instances
 
 
 
