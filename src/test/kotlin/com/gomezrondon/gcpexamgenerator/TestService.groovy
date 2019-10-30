@@ -16,16 +16,16 @@ class TestService extends Specification {
     @Test
     def "testing loading questions"() {
         when:
-        def variable = service.loadQuestions().size()
+        def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 403
+        variable == 407
     }
 
 
     @Test
     def "testing generating questions"() {
         setup:
-        def questionsList = service.loadQuestions()
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
         def numQuestions = 2
         when:
         def questions = service.generateQuestion(questionsList, numQuestions)
@@ -36,7 +36,7 @@ class TestService extends Specification {
     @Test
     def "testing evaluating questions"() {
         setup:
-        def questionsList = service.loadQuestions()
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
         def numQuestions = 2
         when:
         List<Question> questions = service.generateQuestion(questionsList, numQuestions)

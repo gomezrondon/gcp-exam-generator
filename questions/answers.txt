@@ -402,3 +402,7 @@
 401~B~Production-grade solutions
 402~D~Managed Services may be an alternative to creating and managing infrastructure solutions.
 403~A~It typically takes less than 90 seconds to start a cluster.
+404~ C~ is correct because this gives write access only to create a new version.
+405~ B~Is correct because a budget alert will warn you when you reach the limits set.
+406~ A ~is correct because you need to use gcloud to manage the cong/defaults
+407~ B ~is correct because this will ensure that the relevant region is used when not overwritten by a command parameter

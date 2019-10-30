@@ -7,15 +7,15 @@ import java.io.File
 @Service
 class GenerateQuestionService{
 
-    fun loadQuestions(): List<Question> {
-        val readLines = File("""questions${File.separator}questions.txt""").readLines()
+    fun loadQuestions(questionsfileName:String, answerfileName:String): List<Question> {
+        val readLines = File("""questions${File.separator}$questionsfileName""").readLines()
                 .takeWhile { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
                 .map { it.split("~") }
                 .map { Question(it[0].toInt(),it[1].trim())}
 
 
-        File("""questions${File.separator}answers.txt""").readLines()
+        File("""questions${File.separator}$answerfileName""").readLines()
                 .filter { it.isNotEmpty() }
                 .forEach {
                     val split = it.split("~")
@@ -40,7 +40,7 @@ class GenerateQuestionService{
             val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex())
 
       //      print("$count) Question: ")
-            val temp = split.slice(0..0).joinToString(" ")
+            val temp = split.slice(0..0).joinToString(" ") + "\n"
 
             val list = split.slice(1..split.size - 1)
 
