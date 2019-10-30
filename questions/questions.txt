@@ -414,6 +414,8 @@
 --- more custom questions
 400~What's the beneﬁt of writing templates for your Deployment Manager conﬁguration? A. Allows you to hardcode properties for your resources B. Ensure that one resource is created before another; otherwise, resources will be created in parallel C. Allows you to abstract part of your configuration into individual building blocks that you can reuse
 401~What does Google Cloud Platform Marketplace offer? A. A centralized billing platform for all GCP services and applications B.Production-grade solutions from third-party vendors who have already created their own deployment configurations based on Deployment Manager C.A platform for trading VM instances
+402~How are Managed Services useful? A. Managed Services are more customizable than infrastructure solutions. B. Managed Services are pay services offered by 3rd party vendors. C. If you have an existing infrastructure service, Google will manage it for you if you purchase a Managed Services contract. D. Managed Services may be an alternative to creating and managing infrastructure solutions.
+403~Which of the following is a feature of Cloud Dataproc? A. It typically takes less than 90 seconds to start a cluster. B. Dataproc allows full control over HDFS advanced settings. C. Dataproc billing occurs in 10-hour intervals. D. It doesn't integrate with Stackdriver, but it has its own monitoring system.
 
 
 

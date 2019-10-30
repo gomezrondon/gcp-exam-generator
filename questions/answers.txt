@@ -400,3 +400,5 @@
 399~B~ OpenCensus is a library for developing custom metrics that can be used with Stackdriver Logging, so option B is correct. Option A is incorrect; Prometheus is an open source monitoring tool, but it is not used to define custom metrics in Stackdriver Monitoring. Option C is incorrect; Grafana is a visualization tools for Prometheus. Option D is incorrect; Nagios is an open source monitoring and alerting service, but it is not used for defining custom metrics in Stackdriver Logging.
 400~C~Allows you to abstract part of your configuration into individual building blocks that you can reuse
 401~B~Production-grade solutions
+402~D~Managed Services may be an alternative to creating and managing infrastructure solutions.
+403~A~It typically takes less than 90 seconds to start a cluster.
