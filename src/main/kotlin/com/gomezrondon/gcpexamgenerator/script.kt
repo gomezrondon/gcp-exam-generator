@@ -43,7 +43,7 @@ fun main() {
         "n" -> {
             val service = GenerateQuestionService()
             val loadQuestions = service.loadQuestions("q-temp.txt", "a-temp.txt")
-            var questions = service.generateQuestion(loadQuestions as MutableList<Question>, 1);
+            var questions = service.generateQuestion(loadQuestions as MutableList<Question>, 1, false);
             service.askQuestions(questions)
         }
 
