@@ -412,15 +412,15 @@
 411~ C ~is correct because a managed instance group can use an instance template to scale based on HTTP traffic.
 412~ A E ~Is correct because creating a cluster with Stackdriver Logging option will enable all the container logs to be stored in Stackdriver Logging. Stackdriver Logging support exporting logs to BigQuery by creating sinks.
 413~ A ~is correct because this is the way to set up an autoscaling Kubernetes cluster.
-
-414~ A~ is correct because this makes sure the VM gets replicated in the new zone.       
-
-415~ B C~ because Cloud SQL is a relational and transactional database in the list. Spanner is a relational and transactional database in the list           
-
-416~  A~ is correct because this resizes the cluster to the desired number of nodes.            
-
-417~  D~ is correct because this makes sure there is no downtime and you can roll back the fastest.              
-
-418~  D~ is correct because this exposes the service on a cluster-internal IP address. Choosing this method makes the service reachable only from within the cluster.                
-
-419~  B ~is correct because this is the correct way to estimate the yearly BigQuery querying costs.                 
+414~ A~ is correct because this makes sure the VM gets replicated in the new zone.
+415~ B C~ because Cloud SQL is a relational and transactional database in the list. Spanner is a relational and transactional database in the list
+416~  A~ is correct because this resizes the cluster to the desired number of nodes.
+417~  D~ is correct because this makes sure there is no downtime and you can roll back the fastest.
+418~  D~ is correct because this exposes the service on a cluster-internal IP address. Choosing this method makes the service reachable only from within the cluster.
+419~  B ~is correct because this is the correct way to estimate the yearly BigQuery querying costs.
+420~  D E F G ~Customers can scale their resource use up and down, Customers pay only for what they use or reserve, Resources are available from anywhere over the network  and Computing resources available on-demand and seIf-service
+421~  A~They are manageable separately from the underlying hardware.
+422~  A~Platform as a Service
+423~  B~ The zones within a region have fast network connectivity among them.
+424~  A~ Infrastructure as a Service
+425~  A~ Customers who create and run many virtual machines
