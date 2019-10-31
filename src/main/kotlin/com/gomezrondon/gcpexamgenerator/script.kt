@@ -1,13 +1,15 @@
 package com.gomezrondon.gcpexamgenerator
 
+import com.gomezrondon.gcpexamgenerator.dsl.work
 import java.io.File
+
+
 
 /**
  * This script helps assemble the questions and answers.
  */
 fun main() {
-
-     val lastCount = File("questions/questions.txt").readLines()
+    val lastCount = File("questions/questions.txt").readLines()
             .filter { !it.startsWith("---") }
             .filter { it.isNotEmpty() }
             .takeLast(1)
@@ -15,20 +17,11 @@ fun main() {
             .first()
 
 
-    val options = File("questions/temp.txt").readText().split("\r\n").joinToString(" ")
+    val build = work.build
+    build.counter = lastCount
+    val qtemp = build.getQ()
+    val atemp = build.getA()
 
-    val regExpQuest = """(?<=q:)(.*)(?=o:)""".toRegex(RegexOption.MULTILINE)
-    val first = regExpQuest.findAll(options).map { it.value }.first()
-
-    val regExpOpt = """(?<=o:)(.*)(?=a:)""".toRegex(RegexOption.MULTILINE)
-    val second = regExpOpt.findAll(options).map { it.value }.first()
-
-    val regExpAnsW = """(?<=a:)(.*)""".toRegex(RegexOption.MULTILINE)
-    val third = regExpAnsW.findAll(options).map { it.value }.first()
-
-   // println(options)
-    val qtemp = "${lastCount + 1}~$first $second"
-    val atemp =  "${lastCount + 1}~$third"
     println(qtemp)
     println(atemp)
 
@@ -49,12 +42,6 @@ fun main() {
 
         "y" -> addQuestionToFile(qtemp, atemp)
     }
-
-
-
-
-
-
 
 }
 

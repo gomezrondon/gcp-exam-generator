@@ -441,3 +441,6 @@
 426~ Choose the correct completion: Services and APIs are enabled on a per____ basis.     A. Organization B. Project C. Folder D. Billing account
 427~ True or false: Google manages every aspect of Google Cloud Platform customers' security.     A. True B. False
 428~ Your company has two GCP projects, and you want them to share policies. What is the less error- prone way to set this up?     A. Duplicate all the policies on one project onto the other. B. Place both projects into a folder, and define the policies on the folder.
+429~When would you choose to have an organization node? (Choose all that are correct. Choose 2responses.) A. When you want to create folders. B. When you want to organize resources into projects. C. When you want to apply organization‘wide policies centrally. D. There is no choice; organization nodes are mandatory.
+430~Order these IAM role types from broadest to ﬁnest-grained. A. Primitive roles, predeﬁned roles, custom roles B. Custom roles. predeﬁned roles, primitive roles C. Predeﬁned roles, custom roles, primitive roles
+431~Can IAM policies that are implemented higher in the resource hierarchy take away access that isgranted by lower-level policies? A. Yes. B. No.
