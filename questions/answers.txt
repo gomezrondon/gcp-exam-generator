@@ -407,3 +407,8 @@
 406~ A ~is correct because you need to use gcloud to manage the cong/defaults
 407~ B ~is correct because this will ensure that the relevant region is used when not overwritten by a command parameter
 408~ C ~is correct because this is the proper way to estimate charges.
+409~ C~is correct because Cloud Bigtable is the most performant storage option to work with IoT and time series data
+410~ B~is correct because buckets can be multi-regional and have lifecycle management.
+411~ C ~is correct because a managed instance group can use an instance template to scale based on HTTP traffic.
+412~ A E ~Is correct because creating a cluster with Stackdriver Logging option will enable all the container logs to be stored in Stackdriver Logging. Stackdriver Logging support exporting logs to BigQuery by creating sinks.
+413~ A ~is correct because this is the way to set up an autoscaling Kubernetes cluster.

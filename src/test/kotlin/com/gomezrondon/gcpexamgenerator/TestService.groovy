@@ -18,7 +18,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 407
+        variable == 413
     }
 
 
@@ -28,7 +28,7 @@ class TestService extends Specification {
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
         def numQuestions = 2
         when:
-        def questions = service.generateQuestion(questionsList, numQuestions)
+        def questions = service.generateQuestion(questionsList, numQuestions, true)
         then:
         numQuestions == questions.size()
     }
@@ -37,9 +37,24 @@ class TestService extends Specification {
     def "testing evaluating questions"() {
         setup:
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
-        def numQuestions = 2
+        def numQuestions = 10
         when:
-        List<Question> questions = service.generateQuestion(questionsList, numQuestions)
+        List<Question> questions = service.generateQuestion(questionsList, numQuestions, true)
+        def anwerList = questions.collect {it.answer}
+        def results = service.evaluateResults(questions, anwerList)
+        then:
+        results.get(3) == "Score: 100.0%"
+    }
+
+
+    @Test
+    def "testing evaluating questions without randomness"() {
+        setup:
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def numQuestions = 10
+        def randomness = false
+        when:
+        List<Question> questions = service.generateQuestion(questionsList, numQuestions, randomness)
         def anwerList = questions.collect {it.answer}
         def results = service.evaluateResults(questions, anwerList)
         then:

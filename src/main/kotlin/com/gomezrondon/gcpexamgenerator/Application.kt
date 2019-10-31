@@ -21,7 +21,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
             print("Select number of Questions: 5, 10, 20 ...: ");
             val numberOption = readLine().toString().toLowerCase()
 
-            var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt());
+            var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), true);
             val responses = service.askQuestions(questions)
             val results = service.evaluateResults(questions, responses)
 

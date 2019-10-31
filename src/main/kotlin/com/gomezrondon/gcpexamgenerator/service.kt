@@ -28,7 +28,7 @@ class GenerateQuestionService{
         return readLines
     }
 
-    fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int) : MutableList<Question>{
+    fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int, isRandom:Boolean = true) : MutableList<Question>{
 
 
         var question: MutableList<Question> = mutableListOf<Question>()
@@ -44,13 +44,14 @@ class GenerateQuestionService{
 
             val list = split.slice(1..split.size - 1)
 
-            val randList = randomizeList(list)
-
-
             listOfQuestions.remove(random)
-            //we remap the options randomly
-            random.remapOptions(randList)
 
+            val randList = randomizeList(list, isRandom)
+
+            if (isRandom) {
+                //we remap the options randomly
+                random.remapOptions(randList)
+            }
 
             val reMappedOptions = list.map {
                 val oldOption = it.split(". ").get(0)
@@ -75,19 +76,24 @@ class GenerateQuestionService{
 
     }
 
-    private fun randomizeList(list: List<String>):List<String>  {
+    private fun randomizeList(list: List<String>, random: Boolean):List<String>  {
         val optionsList =  listOf<String>("A","B","C","D","E","F","G")
 
         var tempList = list.map { it.split(".").get(0) }.toMutableList()
         var randomOptionList = list.toMutableList()
 
         var index = 0
-        while(tempList.size > 0) {
-            val random = tempList.random()
-            randomOptionList.set(index, optionsList.get(index)+"|"+random)
-            tempList.remove(random)
-            index++
+        if (random) {
+            while(tempList.size > 0) {
+                val random = tempList.random()
+                randomOptionList.set(index, optionsList.get(index)+"|"+random)
+                tempList.remove(random)
+                index++
+            }
+        }else{
+            randomOptionList = tempList.map { it +"|"+ it }.toMutableList()
         }
+
 
         return randomOptionList
     }
