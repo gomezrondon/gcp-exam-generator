@@ -424,3 +424,6 @@
 423~  B~ The zones within a region have fast network connectivity among them.
 424~  A~ Infrastructure as a Service
 425~  A~ Customers who create and run many virtual machines
+426~  B ~ Project
+427~  B ~ False
+428~  B ~ Place both projects into a folder, and define the policies on the folder.
