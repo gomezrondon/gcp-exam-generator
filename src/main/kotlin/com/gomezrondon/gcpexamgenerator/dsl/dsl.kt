@@ -10,25 +10,25 @@ object work{
 
         question(
                 """
-How do Compute Engine customers choose between big VMs and many VMs?
+Why would a customer consider the Coldline storage class?
             
             """
         )
-
+// a* true.
+// b* false.
         options( """
+a* To use the Coldline Storage API.
 
+b* To improve security.
 
-a* Use big VMs for fault tolerance and elasticity; use many VMs for in-memory databases and CPU-
-intensive analytics
+c* To save money on storing frequently accessed data.
 
-b* Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance
-and elasticity
+d* To save money on storing infrequently accessed data.
             """)
 
         answer( """
            
-           b* Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance
-and elasticity
+           d* To save money on storing infrequently accessed data.
 
             """)
     }

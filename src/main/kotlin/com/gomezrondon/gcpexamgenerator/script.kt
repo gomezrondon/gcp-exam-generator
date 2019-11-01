@@ -8,12 +8,10 @@ import java.io.File
 /**
  * This script helps assemble the questions and answers.
  */
-/*
 fun main() {
     mainProcess()
 
 }
-*/
 
 private fun mainProcess() {
 
