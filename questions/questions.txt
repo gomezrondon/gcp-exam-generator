@@ -444,3 +444,4 @@
 429~When would you choose to have an organization node? (Choose all that are correct. Choose 2responses.) A. When you want to create folders. B. When you want to organize resources into projects. C. When you want to apply organization‘wide policies centrally. D. There is no choice; organization nodes are mandatory.
 430~Order these IAM role types from broadest to ﬁnest-grained. A. Primitive roles, predeﬁned roles, custom roles B. Custom roles. predeﬁned roles, primitive roles C. Predeﬁned roles, custom roles, primitive roles
 431~Can IAM policies that are implemented higher in the resource hierarchy take away access that isgranted by lower-level policies? A. Yes. B. No.
+432~Which three GCP load balancing services support IPv6 clients? A. Internal load balancing B. SSL proxy load balancing C. Network load balancing D. HTTP(S) load balancing E. TCP proxy load balancing

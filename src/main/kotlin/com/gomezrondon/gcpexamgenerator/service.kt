@@ -76,14 +76,14 @@ class GenerateQuestionService{
 
     }
 
-    private fun randomizeList(list: List<String>, random: Boolean):List<String>  {
+    private fun randomizeList(list: List<String>, randonize: Boolean):List<String>  {
         val optionsList =  listOf<String>("A","B","C","D","E","F","G")
 
         var tempList = list.map { it.split(".").get(0) }.toMutableList()
         var randomOptionList = list.toMutableList()
 
         var index = 0
-        if (random) {
+        if (randonize) {
             while(tempList.size > 0) {
                 val random = tempList.random()
                 randomOptionList.set(index, optionsList.get(index)+"|"+random)

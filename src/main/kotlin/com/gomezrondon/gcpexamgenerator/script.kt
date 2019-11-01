@@ -9,18 +9,17 @@ import java.io.File
  * This script helps assemble the questions and answers.
  */
 fun main() {
-    val lastCount = File("questions/questions.txt").readLines()
-            .filter { !it.startsWith("---") }
-            .filter { it.isNotEmpty() }
-            .takeLast(1)
-            .map { it.split("~").get(0).toInt() }
-            .first()
+    mainProcess()
+
+}
+
+private fun mainProcess() {
+
 
 
     val build = work.build
-    build.counter = lastCount
-    val qtemp = build.getQ()
-    val atemp = build.getA()
+    val qtemp = build.question
+    val atemp = build.answer
 
     println(qtemp)
     println(atemp)
@@ -42,8 +41,9 @@ fun main() {
 
         "y" -> addQuestionToFile(qtemp, atemp)
     }
-
 }
+
+
 
 
 fun addQuestionToFile(question: String, answer: String) {

@@ -428,7 +428,6 @@
 427~  B ~ False
 428~  B ~ Place both projects into a folder, and define the policies on the folder.
 429~A C~When you want to create folders.  and When you want to apply organization‘wide policies centrally.
-
 430~A ~Primitive roles, predeﬁned roles, custom roles
-
 431~B ~No.
+432~B D E~SSL proxy load balancing, HTTP(S) load balancing and TCP proxy load balancing
