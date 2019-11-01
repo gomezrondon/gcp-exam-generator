@@ -15,7 +15,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
     override fun run(vararg args: String?) {
 
         if (executeAtStart) {
-            val questionsList = service.loadQuestions("questions.txt","answers.txt")
+            val questionsList = service.loadQuestions("questions.txt", "answers.txt")
             println("There are ${questionsList.size} Questions!")
             println("")
             print("Select number of Questions: 5, 10, 20 ...: ");

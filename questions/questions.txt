@@ -465,3 +465,23 @@
 441~Consider a single hierarchy of GCP resources. which of these skuatlons Is possible? (Choose all that are correct Choose 3 responses.) A. There Is an organization node and there are no folders B. There are two or more organization nodes C. There is no organization node, and there are no folders. D. There is an organization node, and there is at least one folder. E. There is no organization node, but there is at least one folder.
 
 442~What is the difference between IAM primitives roles and IAM predefined roles? A. Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a project. B. Primitive roles only allow viewing. creating, and deleting resources. Predeﬁned roles allow any modiﬁcation. C. Primitive roles can only be granted to single users. Predeﬁned roles can be associated with a group. D. Primitive roles only apply to the owner olthe GCP project. Predeﬁned roles can be associated with any user. E. Primitive roles are changeable once assigned. Predeﬁned roles can never be changed.
+
+443~Which statement is true about billing for solutions deployed using Cloud Marketplace (formerly known as Cloud Launcher)? A. You pay only for the underlying GCP resources you use, with the possible addition of extra fees for commercially licensed software. B. You pay only for the underlying GCP resources you use; Google pays the license fees for commercially licensed software. C. Cloud Marketplace solutions are always free. D. After a trial period, each Cloud Marketplace solution assesses a fixed recurring monthly fee.
+
+444~True or false? In Google Cloud VPCs, subnets have regional scope. A. True. B. False.
+
+445~True or false: If you increase the size of a subnet in a custom VPC network, the IP addresses of virtual machines already on that subnet might be affected. A. True. B. False.
+
+446~True or false: You can create Compute Engine virtual machines from the command line. A. True. B. False.
+
+447~What is the main reason customers choose Preemptible VMs? A. To improve performance. B. To reduce cost.
+
+448~True or False: Google Cloud Load Balancing allows you to balance HTTP-based trafﬁc across multiple Compute Engine regions. A. True. B. False.
+
+449~Which statement is true about Google VPC networks and subnets? A. Networks are global; subnets are zonal B. Networks are global; subnets are regional C. Networks and subnets are global D. Networks are regional; subnets are zonal
+
+450~An application running in a Compute Engine virtual machine needs high-performance scratch space. Which type of storage meets this need? A. Local SSD B. Local standard C. Standard persistent D. SSD persistent
+
+451~Choose an application that would be suitable for running in a Preemptible VM. A. An interactive website B. An online relational database C. A batch job that cannot be checkpointed and restarted D. A batch job that can be checkpointed and restarted
+
+452~How do Compute Engine customers choose between big VMs and many VMs? A. Use big VMs for fault tolerance and elasticity; use many VMs for in-memory databases and CPU- intensive analytics B. Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance and elasticity

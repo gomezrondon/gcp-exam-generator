@@ -10,7 +10,7 @@ object work{
 
         question(
                 """
-What is the difference between IAM primitives roles and IAM predefined roles?
+How do Compute Engine customers choose between big VMs and many VMs?
             
             """
         )
@@ -18,25 +18,17 @@ What is the difference between IAM primitives roles and IAM predefined roles?
         options( """
 
 
-a* Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a
-project.
+a* Use big VMs for fault tolerance and elasticity; use many VMs for in-memory databases and CPU-
+intensive analytics
 
-b* Primitive roles only allow viewing. creating, and deleting resources. Predeﬁned roles allow any
-modiﬁcation.
-
-c* Primitive roles can only be granted to single users. Predeﬁned roles can be associated with a group.
-
-d* Primitive roles only apply to the owner olthe GCP project. Predeﬁned roles can be associated with
-any user.
-
-e* Primitive roles are changeable once assigned. Predeﬁned roles can never be changed.
- 
+b* Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance
+and elasticity
             """)
 
         answer( """
-                a* Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a
-project.
-               
+           
+           b* Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance
+and elasticity
 
             """)
     }

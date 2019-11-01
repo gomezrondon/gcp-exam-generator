@@ -451,3 +451,23 @@
 441~A C D~There Is an organization node and there are no folders, There is no organization node, and there are no folders. and There is an organization node, and there is at least one folder.
 
 442~A~Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a project.
+
+443~A~You pay only for the underlying GCP resources you use, with the possible addition of extra fees for commercially licensed software.
+
+444~A~Sorry, that's not correct. VPC subnets can span the zones that make up a region. This is beneﬁcial because your solutions can incorporate fault tolerance without complicating your network topology.
+
+445~B~False.
+
+446~A~True.
+
+447~B~To reduce cost.
+
+448~A~True.
+
+449~B~Networks are global; subnets are regional
+
+450~A~Local SSD
+
+451~D~A batch job that can be checkpointed and restarted
+
+452~B~Use big VMs for in-memory databases and CPU-intensive analytics; use many VMs for fault tolerance and elasticity
