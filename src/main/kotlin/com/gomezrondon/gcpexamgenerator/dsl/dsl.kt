@@ -10,35 +10,33 @@ object work{
 
         question(
                 """
-           Which three GCP load balancing services support IPv6 clients?
+What is the difference between IAM primitives roles and IAM predefined roles?
             
             """
         )
 
         options( """
-                a* Internal load balancing
 
+
+a* Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a
+project.
+
+b* Primitive roles only allow viewing. creating, and deleting resources. Predeﬁned roles allow any
+modiﬁcation.
+
+c* Primitive roles can only be granted to single users. Predeﬁned roles can be associated with a group.
+
+d* Primitive roles only apply to the owner olthe GCP project. Predeﬁned roles can be associated with
+any user.
+
+e* Primitive roles are changeable once assigned. Predeﬁned roles can never be changed.
  
-b* SSL proxy load balancing
-
-
-
-c* Network load balancing
-
- 
-
-d* HTTP(S) load balancing
-
-
-
-
-e* TCP proxy load balancing
             """)
 
-
         answer( """
-                b d e* SSL proxy load balancing, HTTP(S) load balancing and TCP proxy load balancing
-                
+                a* Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a
+project.
+               
 
             """)
     }

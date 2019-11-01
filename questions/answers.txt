@@ -431,3 +431,23 @@
 430~A ~Primitive roles, predeﬁned roles, custom roles
 431~B ~No.
 432~B D E~SSL proxy load balancing, HTTP(S) load balancing and TCP proxy load balancing
+
+433~A~That's correct! In GCP, each virtual machine needs to have an internal IP address. The external IP address is optional; therefore, a VM instance only needs one IP address.
+
+434~A~Yes.
+
+435~B~You will not be able to access the web server through http or ssh.
+
+436~B~False. see https://cloud.google.com/iam/docs/overview#policy_hierarchy
+
+437~A~True.
+
+438~A B C~Review the lecture "Identity and Access Management (IAM) Roles."
+
+439~C~Google takes care ofthe lower parts of the stack, and customers are responsible for the higher parts.
+
+440~D~The project ID
+
+441~A C D~There Is an organization node and there are no folders, There is no organization node, and there are no folders. and There is an organization node, and there is at least one folder.
+
+442~A~Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a project.

@@ -445,3 +445,23 @@
 430~Order these IAM role types from broadest to ﬁnest-grained. A. Primitive roles, predeﬁned roles, custom roles B. Custom roles. predeﬁned roles, primitive roles C. Predeﬁned roles, custom roles, primitive roles
 431~Can IAM policies that are implemented higher in the resource hierarchy take away access that isgranted by lower-level policies? A. Yes. B. No.
 432~Which three GCP load balancing services support IPv6 clients? A. Internal load balancing B. SSL proxy load balancing C. Network load balancing D. HTTP(S) load balancing E. TCP proxy load balancing
+
+433~In GCP, what is the minimum number of IP addresses that a VM instance needs? A. One: Only an internal IP address B. Two: One internal and one external IP address C. Three: One internal, one external and one alias IP address
+
+434~Without a VPC network, you cannot create VM instances, containers or App Engine applications. A. Yes. B. No.
+
+435~What will happen if you restrict access to the VM from internet? A. You will be able to SSH from the command line. B. You will not be able to access the web server through http or ssh. C. You will be able to SSH from the console. D. You will be able to access the web server through http.
+
+436~True or False. In Google Cloud IAM: if a policy applied at the project level gives you Owner permissions, your access to an individual resource in that project might be restricted to View permission if someone applies a more restrictive policy directly to that resource. A. True B. False
+
+437~True or False. All Google Cloud Platform resources are associated with a project. A. True B. False
+
+438~Service accounts are used to provide which of the following? (Choose all that are correct. Choose 3 responses.) A. A way to allow users to act with service account permissions B. A way to restrict the actions a resource (such as a VM) can perform C. Authentication between Google Cloud Platform services D. A set of predefined permissions
+
+439~How do GCP customers and Google Cloud Platform divide responsibility for security? A. Google takes care ofthe higher parts of the stack, and customers are responsible for the lower parts. B. All aspects of security are the customer's responsibility. C. Google takes care ofthe lower parts of the stack, and customers are responsible for the higher parts. D. All aspects of security are Google's responsibility.
+
+440~Which of these values is globally unique, permanent, and unchangeable, but chosen by the customer? A. The project's billing credit-card number B. The project name C. The project number D. The project ID
+
+441~Consider a single hierarchy of GCP resources. which of these skuatlons Is possible? (Choose all that are correct Choose 3 responses.) A. There Is an organization node and there are no folders B. There are two or more organization nodes C. There is no organization node, and there are no folders. D. There is an organization node, and there is at least one folder. E. There is no organization node, but there is at least one folder.
+
+442~What is the difference between IAM primitives roles and IAM predefined roles? A. Primitive roles affect all resources in a GCP project. Predeﬁned roles apply to a particular service in a project. B. Primitive roles only allow viewing. creating, and deleting resources. Predeﬁned roles allow any modiﬁcation. C. Primitive roles can only be granted to single users. Predeﬁned roles can be associated with a group. D. Primitive roles only apply to the owner olthe GCP project. Predeﬁned roles can be associated with any user. E. Primitive roles are changeable once assigned. Predeﬁned roles can never be changed.
