@@ -1,0 +1,15 @@
+1~e~Srping  question? A. Physical server B. VM C. Block D. Subnet
+2~e~Srping  question? A. Monitoring B. Networking C. Some security management tasks D. All of the above
+3~e~Srping  question? A. Kubernetes Engine and Compute Engine B. App Engine and Cloud Functions C. Cloud Functions and Compute Engine D. Cloud Functions and Kubernetes Engine
+4~e~Srping  question? A. Block storage B. Object storage C. Cache D. Network File System
+5~m~Srping  question? A. 4KB B. 8KB C. 16KB D. Block size can vary
+6~m~Srping  question? A. Identity access management B. Router C. Firewall D. IP address tabl
+7~m~Srping  question? A. VMs B. Clusters of VMs C. No servers; specialized services are serverless D. VMs running Linux onl
+8~h~Srping  question? A. A company is just starting up B. A company can accurately predict server need for an extended period of time C. A company has a fixed IT budget D. A company has a variable IT budge
+9~h~Srping  question? A. The time of day the VM is run B. The characteristics of the server C. The application you run D. None of the above
+10~h~Srping  question? A. 1 B. 10 C. 25 D. None; Cloud Vision is a serverless service.
+11~e~Srping  question? A. Physical server B. VM C. Block D. Subnet
+12~e~Srping  question? A. Monitoring B. Networking C. Some security management tasks D. All of the above
+13~e~Srping  question? A. Kubernetes Engine and Compute Engine B. App Engine and Cloud Functions C. Cloud Functions and Compute Engine D. Cloud Functions and Kubernetes Engine
+14~e~Srping  question? A. Block storage B. Object storage C. Cache D. Network File System
+15~m~Srping  question? A. 4KB B. 8KB C. 16KB D. Block size can vary

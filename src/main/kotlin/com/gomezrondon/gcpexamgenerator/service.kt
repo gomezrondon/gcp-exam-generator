@@ -12,13 +12,16 @@ class GenerateQuestionService{
                 .takeWhile { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
                 .map { it.split("~") }
-                .map { Question(it[0].toInt(),it[1].trim())}
+                .map { Question(it[0].toInt(),it[1],it[2].trim())}
 
+        val indexList = readLines.map { it.id }
 
         File("""questions${File.separator}$answerfileName""").readLines()
                 .filter { it.isNotEmpty() }
-                .forEach {
-                    val split = it.split("~")
+                .map { it.split("~") }
+                .filter { indexList.contains(it.get(0).toInt()) }
+                .forEach { split ->
+                   // val split = it.split("~")
                     val index = split[0].toInt()
                     readLines.first { it.id ==index }.answer = split[1].toLowerCase().trim()
                     readLines.first { it.id ==index }.explanation = split[2].trim()
@@ -159,7 +162,7 @@ class GenerateQuestionService{
 }
 
 
-data class Question(val id:Int, var question: String, var answer:String="N/A", var explanation:String="N/A"){
+data class Question(val id:Int, val level: String, var question: String, var answer:String="N/A", var explanation:String="N/A"){
 
     fun remapOptions(randList: List<String>) {
         // "new position A|C old position "

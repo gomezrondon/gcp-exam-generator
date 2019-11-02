@@ -1,5 +1,7 @@
-package com.gomezrondon.gcpexamgenerator
+package com.gomezrondon.gcpexamgenerator.scripts
 
+import com.gomezrondon.gcpexamgenerator.GenerateQuestionService
+import com.gomezrondon.gcpexamgenerator.Question
 import com.gomezrondon.gcpexamgenerator.dsl.work
 import java.io.File
 
