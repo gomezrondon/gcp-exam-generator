@@ -10,30 +10,31 @@ object work{
 
         question(
                 """
-Why would a customer consider the Coldline storage class?
-            
+Where do the resources used to build Kubernetes Engine clusters come from?
+ 
             """
         )
-// a* true.
-// b* false.
+
+/*        options( """
+ a* true.
+ b* false.
+            """)*/
+
+
         options( """
-a* To use the Coldline Storage API.
-
-b* To improve security.
-
-c* To save money on storing frequently accessed data.
-
-d* To save money on storing infrequently accessed data.
+ a* true.
+ b* false.
             """)
 
         answer( """
            
-           d* To save money on storing infrequently accessed data.
-
+ a* true.
+ 
             """)
     }
 
 }
+
 
 
 fun createTextQuestion( c: QuestionBuilder.()-> Unit): txtQuestion {

@@ -1,11 +1,15 @@
 package com.gomezrondon.gcpexamgenerator
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
 
 
 @Service
 class GenerateQuestionService{
+
+    val LOG: Logger = LoggerFactory.getLogger(GenerateQuestionService::class.java);
 
     fun loadQuestions(questionsfileName:String, answerfileName:String): List<Question> {
         val readLines = File("""questions${File.separator}$questionsfileName""").readLines()
@@ -103,20 +107,28 @@ class GenerateQuestionService{
 
 
         questions.forEachIndexed { index,  qton ->
+
             val tempIndex = index + 1
-            println("$tempIndex) Question: ")
+
+            LOG.info("$tempIndex) Question: ")
+
+
             qton.question.split("|").forEach {
                 it.split(" ").chunked(20).map { it.joinToString(" ") }.forEach {
-                    println(it)
+                    LOG.info(it+"\n")
+
                 }
             }
 
-            println("\n")
-            print("Response?: ")
+            LOG.info("\n")
+            LOG.info("Response?: ")
             var response = readLine().toString().toLowerCase()
+            LOG.info("Response ( $response ) \n")
+
 
             responses.add(response)
-            println("\n")
+            LOG.info("\n")
+
 
         }
 

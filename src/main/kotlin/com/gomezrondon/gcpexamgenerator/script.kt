@@ -27,18 +27,21 @@ private fun mainProcess() {
     File("questions${File.separator}q-temp.txt").writeText(qtemp)
     File("questions${File.separator}a-temp.txt").writeText(atemp)
 
+    val service = GenerateQuestionService()
+    val loadQuestions = service.loadQuestions("q-temp.txt", "a-temp.txt")
+    var questions = service.generateQuestion(loadQuestions as MutableList<Question>, 1, false);
+    val askQuestions = service.askQuestions(questions)
+    val results = service.evaluateResults(questions, askQuestions)
+
+    //printing results
+    results.forEach { println(it) }
+
+
     print("Append question to file? [y/n] :")
     var yesOrNo = readLine()
 
 
     when (yesOrNo) {
-        "n" -> {
-            val service = GenerateQuestionService()
-            val loadQuestions = service.loadQuestions("q-temp.txt", "a-temp.txt")
-            var questions = service.generateQuestion(loadQuestions as MutableList<Question>, 1, false);
-            service.askQuestions(questions)
-        }
-
         "y" -> addQuestionToFile(qtemp, atemp)
     }
 }

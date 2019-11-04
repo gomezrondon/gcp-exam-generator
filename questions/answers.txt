@@ -457,3 +457,49 @@
 456~A D E~A default storage class, A geographic location and A globally-unique name
 457~B~False.
 458~D~To save money on storing infrequently accessed data.
+
+459~B~To save money on storing infrequently accessed data.
+
+460~A~To save money on storing infrequently accessed data.
+
+461~B~To save money on storing infrequently accessed data.
+
+462~B C~They are both NoSQL databases. and They are both highly scalable.
+
+463~A~True.
+
+464~A~They are immutable. and new versions overwrite old unless you turn on versioning.
+
+465~A~Cloud Datastore
+
+466~B E~Nearline and Coldline assess additional retrieval fees. and Nearline and Coldline assess lower storage fees.
+
+467~B~Cloud SQL
+
+468~B~Cloud Spanner
+
+469~B~Cloud Storage
+
+470~B D~Consistency across development, testing, production environments and Simpler to migrate workloads
+
+471~B~False.
+
+472~A~True.
+
+473~B~A group of containers that work together
+
+474~B~Yes; the GCP—provided tool is an option. but customers may choose not use it.
+
+475~B~In clusters built from Compute Engine virtual machines
+
+476~B C D~Consumes less resources..., abstract away unimportant details ... and are easy to move around
+
+477~B~Agroup of containers
+
+478~A~A group of machines where Kubernetes can schedule workloads
+
+479~B~Containers start much faster than virtual machines and use fewer resources, because each container does not have its own instance of the operating system.
+
+480~A~Compute Engine
+
+481~A~True.
