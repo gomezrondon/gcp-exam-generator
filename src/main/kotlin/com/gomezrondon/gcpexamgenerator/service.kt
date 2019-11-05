@@ -39,7 +39,7 @@ class GenerateQuestionService{
      //   var responses = mutableListOf<String>()
         var count = 1
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
-            val random = listOfQuestions.random()
+            var random = listOfQuestions.random()
 
             val split = random.question.split("""\s(?=[A-Z]\.\s)""" .toRegex())
 
@@ -181,7 +181,7 @@ data class Question(val id:Int, var question: String, var answer:String="N/A", v
                     .map { valor -> valor.split("|").get(0) }
                     .first()
             newPosition
-        }.sorted().joinToString(" ")
+        }.joinToString(" ")
 
         this.answer = mapResponse
     }
