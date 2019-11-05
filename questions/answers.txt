@@ -503,3 +503,53 @@
 480~A~Compute Engine
 
 481~A~True.
+
+482~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml
+
+483~B D~Data mining and analysis in datasets of known size and Migrate on-premises Hadoop jobs to the cloud.
+
+484~A B~Extract, Transform, and Load (ETL) and Orchestration
+
+485~B C~Sentiment analysis and Fraud detection
+
+486~B E ~BigQuery lets you run fast SQL queries against large databases. and BigQuery is a good choice for data analytics warehousing.
+
+487~C D E~Internet of Things application , Analyzing streaming data and Decoupling systems.
+
+488~B~An open-source software library that's useful for building machine learning applications
+
+489~D~It analyzes text to reveal its structure and meaning.
+
+490~B~Cloud Functions handles scaling these components seamlessly.
+
+491~A D~UDP traffic and TCP traffic on arbitrary port numbers
+
+492~D~A relational database with SQL queries and horizontal scalability
+
+493~B~Structured objects, with lookups based on a single key
+
+494~C~Immutable binary objects
+
+495~B~They don't want to host their own git instance, and they want to integrate with IAM permissions.
+
+496~B~Their application contains event-driven code that they don't want to have to provision compute resources for.
+
+497~B~Deployment Manager is an infrastructure management system for GCP resources.
+
+498~B~Stackdriver Monitoring
+
+499~A D~Lets you view logs from your applications, and filter and lets you define metrics
+
+500~A C~To reduce work and To keep code private to a GCP project
+
+501~A~True.
+
+502~B~False.
+
+503~D E~It is possible for an App Engine application's daily billing to drop to zero. and App Engine manages the hardware and networking infrastructure required to run your code.
+
+504~A C E~Your application can write to local disk , You can install third-party binaries and You can SSH in to your application
+
+505~B C~Ability to ssh in and Wider range of choices for application language.
+
+506~A~True.

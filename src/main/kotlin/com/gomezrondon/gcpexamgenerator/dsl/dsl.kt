@@ -10,8 +10,9 @@ object work{
 
         question(
                 """
-Where do the resources used to build Kubernetes Engine clusters come from?
- 
+True or false: App Engine Flexible Environment applications let their owners control the geographic
+
+region where they run.
             """
         )
 
@@ -28,8 +29,8 @@ Where do the resources used to build Kubernetes Engine clusters come from?
 
         answer( """
            
- a* true.
- 
+           a* true.  
+           
             """)
     }
 

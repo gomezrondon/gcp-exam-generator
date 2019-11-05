@@ -44,6 +44,15 @@ private fun mainProcess() {
     when (yesOrNo) {
         "y" -> addQuestionToFile(qtemp, atemp)
     }
+
+    val rangeTo = 'A'..'G'
+
+    val indexOption =  rangeTo.map { it + "*   " }.joinToString("\n")
+
+
+
+    File("questions${File.separator}temp1.txt").writeText(indexOption)
+
 }
 
 
