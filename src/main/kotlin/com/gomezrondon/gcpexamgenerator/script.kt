@@ -8,16 +8,12 @@ import java.io.File
 /**
  * This script helps assemble the questions and answers.
  */
-/*
 fun main() {
     mainProcess()
 
 }
-*/
 
 private fun mainProcess() {
-
-
 
     val build = work.build
     val qtemp = build.question
@@ -48,8 +44,10 @@ private fun mainProcess() {
     }
 
     val rangeTo = 'A'..'G'
+    val tToZ = 'T'..'Z'
 
-    val indexOption =  rangeTo.map { it + "*   " }.joinToString("\n")
+    val lastLetters = tToZ.joinToString(" ")
+    val indexOption =  rangeTo.map { it + "*   " }.joinToString("\n") + "\n" +lastLetters
 
 
 
@@ -57,10 +55,14 @@ private fun mainProcess() {
 
 }
 
+fun addQuestionToFile(question: String, answer: String) {
+    File("questions${File.separator}commands-questions.txt").appendText("\n"+question+"\n")
+    File("questions${File.separator}commands-answers.txt").appendText("\n"+answer+"\n")
+}
 
 
-
+/*
 fun addQuestionToFile(question: String, answer: String) {
     File("questions${File.separator}questions.txt").appendText("\n"+question+"\n")
     File("questions${File.separator}answers.txt").appendText("\n"+answer+"\n")
-}
+}*/

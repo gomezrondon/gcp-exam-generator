@@ -1,1 +1,28 @@
-1~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml
+1~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml507~A B C D E~Gcloud config set compute/zone europe-west1-c
+2~A B C D E~Gcloud config set compute/zone europe-west1-c
+3~A B C D E~Gcloud config set compute/region europe-west1
+4~A B C ~Gcloud config list
+5~A B C ~Gcloud compute instances list
+6~A B C ~Gcloud container clusters create [CLUSTER-NAME] --zone [zone]
+7~A B C D~Gcloud container clusters get-credentials [CLUSTER-NAME]
+8~A B C ~Kubectl run hello-app --image=gcr.io/google-samples/hello-app:1.0 --port 8080
+9~A B C D~Kubectl expose deployment hello-app --type="LoadBalancer"
+10~A B C ~Kubectl get service
+
+11~A B C D~Gcloud container clusters delete [CLUSTER-NAME]
+
+12~A B C D~Gcloud compute instances create example-instance-1 --machine-type n1-standard-1 --zone us-east4-c
+
+13~A B C D~Gcloud compute instances delete example-instance-1 --zone us-east4-c
+
+14~A B C ~Gcloud app deploy app.yaml
+
+15~A B C ~Gcloud app browse
+
+16~A B C D~Gcloud app deploy app.yaml --quiet
+
+17~A B C D~Gcloud config set project [project-ID]
+
+18~A B C~Gcloud iam list-grantable-roles [resource url ]
+
+19~A B C~Gcloud deployment-manager types list | grep [network |firewall|instance]

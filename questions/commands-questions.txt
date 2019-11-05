@@ -1,1 +1,19 @@
 1~If you want to deploy a template, set the correct order of each command \n (example:  V W X Y [template name] Z [yaml file]) A. Create B. Gcloud C. --config D. Deployment-manager E. Deployments
+2~How to set a zone in the environment?, set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. Gcloud B. Config C. Set D. Compute/zone E. europe-west1-c
+3~How to set a region in the environment? , set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. Gcloud B. Config C. Set D. Compute/region E. europe-west1
+4~How to validate default configuration? , set the correct order of each command: \n (example: X Y Z ) A. Gcloud B. Config C. List
+5~How to list instances? , set the correct order of each command: \n (example: X Y Z list) A. Gcloud B. Compute C. Instances
+6~How to create a kubernetes cluster? , set the correct order of each command: \n (example: W X Y Z [CLUSTER-NAME] --zone [zone]) A. Gcloud B. Container C. Clusters D. Create
+7~How to get authentication credentials from Kubernetes cluster? , set the correct order of each command: \n (example: W X Y Z [CLUSTER-NAME]) A. Gcloud B. Container C. Clusters D. Get-credentials
+8~How to deploy application to a Kubernetes cluster? , set the correct order of each command: \n (example: X Y Z --image=gcr.io/google-samples/hello-app:1.0 --port 8080) A. Kubectl B. Run C. Hello-app
+9~How to create a load balancer service in a Kubernetes cluster? , set the correct order of each command: \n (example: W X Y Z --type="LoadBalancer") A. Kubectl B. Expose C. Deployment D. Hello-app
+10~How to list services in a Kubernetes cluster? , set the correct order of each command: \n (example: W X Y") A. Kubectl B. Get C. Service
+11~How to delete/clean up Kubernetes cluster? , set the correct order of each command: \n (example: W X Y Z [CLUSTER-NAME]") A. Gcloud B. Container C. Clusters D. Delete
+12~How to create a virtual machine with gcloud? , set the correct order of each command: \n (example: W X Y Z example-instance-1 --machine-type n1-standard-1 --zone us-east4-c") A. Gcloud B. Compute C. Instances D. Create
+13~How to Delete a virtual machine with gcloud? , set the correct order of each command: \n (example: W X Y Z example-instance-1 --zone us-east4-c") A. Gcloud B. Compute C. Instances D. Delete
+14~How to deploy an app to AppEngine? , set the correct order of each command: \n (example: X Y Z app.yaml") A. Gcloud B. App C. Deploy
+15~How to get the endpoint of an app in AppEngine? , set the correct order of each command: \n (example: X Y Z ") A. Gcloud B. App C. Browse
+16~How to re-deploy an app in AppEngine? , set the correct order of each command: \n (example: W X Y app.yaml Z ") A. Gcloud B. App C. Deploy D. --quiet
+17~How to set a project as default? , set the correct order of each command: \n (example: W X Y Z [project-ID] ") A. Gcloud B. Config C. Set D. Project
+18~How to list roles granted to a resource ? , set the correct order of each command: \n (example: X Y Z [resource url ] ") A. Gcloud B. Iam C. List-grantable-roles
+19~How to list types of deployment managed resources ? , set the correct order of each command: \n (example: X Y Z list | grep [resource name] ") A. Gcloud B. Deployment-manager C. Types

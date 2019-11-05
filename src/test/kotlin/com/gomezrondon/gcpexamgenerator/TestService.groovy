@@ -14,6 +14,14 @@ class TestService extends Specification {
     private final GenerateQuestionService service
 
     @Test
+    def "mini test"() {
+        when:
+        def trim = "ab cD e ".toLowerCase().trim()
+        then:
+        trim == "A B C D E"
+    }
+
+    @Test
     def "testing loading questions"() {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
@@ -26,7 +34,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 1
+        variable == 19
     }
 
 

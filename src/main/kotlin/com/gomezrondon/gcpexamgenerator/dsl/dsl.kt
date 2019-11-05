@@ -10,9 +10,9 @@ object work{
 
         question(
                 """
-True or false: App Engine Flexible Environment applications let their owners control the geographic
-
-region where they run.
+How to  list types of deployment managed resources ? 
+, set the correct order of each command: \n
+(example:      X Y Z  list | grep [resource name] ")
             """
         )
 
@@ -23,13 +23,16 @@ region where they run.
 
 
         options( """
- a* true.
- b* false.
+A* gcloud
+B*   deployment-manager
+C*   types
+
+
             """)
 
         answer( """
            
-           a* true.  
+           a b c* gcloud deployment-manager types list | grep [network |firewall|instance]
            
             """)
     }
@@ -89,7 +92,7 @@ class QuestionBuilder{
 
     fun build():txtQuestion {
 
-        val lastCount = getLastQuestionCount() + 1
+        val lastCount = getLastQuestionCount("commands-questions.txt") + 1
 
         question = question?.replace("\n","")
         val options = option.map { it.key.toUpperCase() + ". " + it.value.trim().capitalize()}.joinToString(" ")
@@ -102,8 +105,8 @@ class QuestionBuilder{
         return txtQuestion(qText, aText)
     }
 
-    private fun getLastQuestionCount(): Int {
-        val lastCount = File("questions/questions.txt").readLines()
+    private fun getLastQuestionCount( q_file:String): Int {
+        val lastCount = File("questions/"+q_file).readLines()
                 .filter { !it.startsWith("---") }
                 .filter { it.isNotEmpty() }
                 .takeLast(1)

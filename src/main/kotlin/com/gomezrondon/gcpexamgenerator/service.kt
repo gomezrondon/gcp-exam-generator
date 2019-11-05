@@ -123,15 +123,23 @@ class GenerateQuestionService{
 
             LOG.info("\n")
             LOG.info("Response?: ")
-            var response = readLine().toString().toLowerCase()
+            var response = readLine()?.let { formatAnswers(it) }
             LOG.info("Response ( $response ) \n")
 
 
-            responses.add(response)
+            if (response != null) {
+                responses.add(response)
+            }
             LOG.info("\n")
         }
 
         return responses
+    }
+
+    fun formatAnswers(response:String):String {
+        val replace = response.toLowerCase().trim()
+                .replace("""\s""".toRegex(), "").split("").map { it.toLowerCase() }.joinToString(" ")
+        return replace.trim()
     }
 
     fun evaluateResults( questions: MutableList<Question>, responses:MutableList<String>): List<String> {
