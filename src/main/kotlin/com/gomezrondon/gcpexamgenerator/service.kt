@@ -114,9 +114,10 @@ class GenerateQuestionService{
 
 
             qton.question.split("|").forEach {
-                it.split(" ").chunked(20).map { it.joinToString(" ") }.forEach {
-                    LOG.info(it+"\n")
-
+               it.split("""\\n""".toRegex()).forEach {
+                    it.split(" ").chunked(20).map { it.joinToString(" ") }.forEach {
+                        LOG.info(it + "\n")
+                    }
                 }
             }
 
@@ -128,8 +129,6 @@ class GenerateQuestionService{
 
             responses.add(response)
             LOG.info("\n")
-
-
         }
 
         return responses

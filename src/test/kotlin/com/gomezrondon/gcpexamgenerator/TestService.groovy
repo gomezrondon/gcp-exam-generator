@@ -18,7 +18,15 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 506
+        variable == 505
+    }
+
+    @Test
+    def "testing loading from command questions"() {
+        when:
+        def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
+        then:
+        variable == 1
     }
 
 
