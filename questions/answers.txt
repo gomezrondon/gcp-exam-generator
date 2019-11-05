@@ -504,8 +504,6 @@
 
 481~A~True.
 
-482~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml
-
 483~B D~Data mining and analysis in datasets of known size and Migrate on-premises Hadoop jobs to the cloud.
 
 484~A B~Extract, Transform, and Load (ETL) and Orchestration

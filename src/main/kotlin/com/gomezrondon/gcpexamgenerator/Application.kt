@@ -23,34 +23,53 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
     override fun run(vararg args: String?) {
 
         if (executeAtStart) {
-            val questionsList = service.loadQuestions("questions.txt", "answers.txt")
-/*
-            println("There are ${questionsList.size} Questions!")
-            println("")
-            print("Select number of Questions: 5, 10, 20 ...: ");
-*/
 
-            LOG.info("There are ${questionsList.size} Questions!")
-            LOG.info("")
-            LOG.info("Select number of Questions: 5, 10, 20 ...: ");
+            LOG.info(" \n");
+            LOG.info("Select (1) for regular questions. (2) for commands questions: ");
 
             val numberOption = readLine().toString().toLowerCase()
-            LOG.info("Number Of questions: $numberOption \n")
+            LOG.info("Option selected: $numberOption \n")
+            when (numberOption) {
+                "1" -> {
+                    val questionsfileName = "questions.txt"
+                    val answerfileName = "answers.txt"
+                    val output = generateQuestions(questionsfileName, answerfileName)
+                    LOG.info(output)
+                }
 
-            var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), true);
-            val responses = service.askQuestions(questions)
-            val results = service.evaluateResults(questions, responses)
+                "2" -> {
+                    val questionsfileName = "commands-questions.txt"
+                    val answerfileName = "commands-answers.txt"
+                    val output = generateQuestions(questionsfileName, answerfileName)
+                    LOG.info(output)
+                }
+            }
 
-            //printing results
 
-            val output = results.joinToString("\n")
-
-           // println(output)
-            LOG.info(output)
 
         }
 
 
+    }
+
+    private fun generateQuestions(questionsfileName: String, answerfileName: String): String {
+        val questionsList = service.loadQuestions(questionsfileName, answerfileName)
+
+        LOG.info("There are ${questionsList.size} Questions! \n")
+        LOG.info(" \n")
+        LOG.info("Select number of Questions: 5, 10, 20 ...: ");
+
+        val numberOption = readLine().toString().toLowerCase()
+        LOG.info("Number Of questions: $numberOption \n")
+
+        var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), true);
+        val responses = service.askQuestions(questions)
+        val results = service.evaluateResults(questions, responses)
+
+        //printing results
+
+        val output = results.joinToString("\n")
+        return output
     }
 
     private fun getFileName(numberOption: String): String {

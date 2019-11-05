@@ -1,0 +1,1 @@
+1~If you want to deploy a template, set the correct order of each command \n (example:  V W X Y [template name] Z [yaml file]) A. Create B. Gcloud C. --config D. Deployment-manager E. Deployments

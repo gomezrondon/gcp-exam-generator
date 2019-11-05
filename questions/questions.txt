@@ -494,7 +494,6 @@
 479~True or false: each container has its own instance of an operating system. A. True. B. False.
 480~Where do the resources used to build Kubernetes Engine clusters come from? A. Compute Engine B. Bare-metal sewers C. App Engine
 481~True or false: Google keeps Kubernetes Engine refreshed with successive versions of Kubernetes. A. True. B. False.
-482~If you want to deploy a template, set the correct order of each command (use all if necessary) = * * * * <template name> * mydeploy.yaml A. Create B. Gcloud C. --config D. Deployment-manager E. Deployments
 483~Name two use cases for Google Cloud Dataproc (Select 2 answers). A. Manage datasets of unpredictable size B. Data mining and analysis in datasets of known size C. Manage data that arrives in realtime D. Migrate on-premises Hadoop jobs to the cloud
 484~Name two use cases for Google Cloud Data?ow (Select 2 answers). A. Extract, Transform, and Load (ETL) B. Orchestration C. Reserved compute instances D. Manual resource management
 485~Name three use cases for the Google Cloud Machine Learning Platform (Select 2 answers). A. Query architecture B. Sentiment analysis C. Fraud detection D. Data preparation E. Content personalization

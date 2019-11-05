@@ -1,0 +1,1 @@
+1~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml
