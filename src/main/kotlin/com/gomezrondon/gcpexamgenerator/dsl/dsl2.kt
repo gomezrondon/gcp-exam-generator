@@ -8,17 +8,10 @@ object work2{
         texto(
 
                 """
-                    Download file	| gsutil cp gs://<bucket-name>/<dir-path>/package-1.1.tgz .
-                    List all files in a buckets |	 gsutil ls -lh gs://<bucket-name>
-                    List all buckets | gsutil ls
-                    Upload file	 |gsutil cp <filename> gs://<bucket-name>/<directory>/
-                    Cat file	 |gsutil cat gs://<bucket-name>/<filepath>/
-                    Delete file |	gsutil rm gs://<bucket-name>/<filepath>
-                    Move file	 |gsutil mv <src-filepath> gs://<bucket-name>/<directory>/<dest-filepath>
-                    Copy folder |	gsutil cp -r ./conf gs://<bucket-name>/
-                    Show disk usage |	gsutil du -h gs://<bucket-name/<directory>
-                    Create bucket |	gsutil mb gs://<bucket-name>
-                    
+List all sql instances	| gcloud sql instances list
+ List my backend services	| gcloud compute backend-services list
+List all my health check endpoints	| gcloud compute http-health-checks list
+List all URL maps	| gcloud compute url-maps list
                     
                 """.trim()
 
@@ -51,6 +44,7 @@ class QuestionBuilder2{
 //List all buckets and files |	gsutil ls, gsutil ls -lh gs://<bucket-name>
 
        val splitHalf = this.texto.split("""\n""".toRegex())
+               .filter { it.isNotEmpty() }
                 .map { "How to ${it.trim()}" }
                 .map { splitList(it) }
 

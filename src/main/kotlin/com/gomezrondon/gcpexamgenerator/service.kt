@@ -13,14 +13,15 @@ class GenerateQuestionService{
 
     fun loadQuestions(questionsfileName:String, answerfileName:String): List<Question> {
         val readLines = File("""questions${File.separator}$questionsfileName""").readLines()
-                .takeWhile { it.isNotEmpty() }
+                .filter { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
                 .map { it.split("~") }
                 .map { Question(it[0].toInt(),it[1].trim())}
 
 
-        File("""questions${File.separator}$answerfileName""").readLines()
+      File("""questions${File.separator}$answerfileName""").readLines()
                 .filter { it.isNotEmpty() }
+                .filter { it.length > 0 }
                 .forEach {
                     val split = it.split("~")
                     val index = split[0].toInt()
@@ -81,7 +82,8 @@ class GenerateQuestionService{
     }
 
     private fun randomizeList(list: List<String>, randonize: Boolean):List<String>  {
-        val optionsList =  listOf<String>("A","B","C","D","E","F","G")
+        val charRange = 'A'..'Z'
+        val optionsList =  charRange.map { it.toString() }.toList()
 
         var tempList = list.map { it.split(".").get(0) }.toMutableList()
         var randomOptionList = list.toMutableList()

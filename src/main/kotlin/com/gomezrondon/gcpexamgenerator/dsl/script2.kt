@@ -1,9 +1,11 @@
 package com.gomezrondon.gcpexamgenerator.dsl
 
+/*
 fun main() {
     mainProcess()
 
 }
+*/
 
 
 private fun mainProcess() {

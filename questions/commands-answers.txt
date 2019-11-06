@@ -1,4 +1,4 @@
-1~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml507~A B C D E~Gcloud config set compute/zone europe-west1-c
+1~B D E A C~Gcloud deployment-manager deployments create <template name> --config mydeploy.yaml
 2~A B C D E~Gcloud config set compute/zone europe-west1-c
 3~A B C D E~Gcloud config set compute/region europe-west1
 4~A B C ~Gcloud config list
@@ -8,21 +8,75 @@
 8~A B C ~Kubectl run hello-app --image=gcr.io/google-samples/hello-app:1.0 --port 8080
 9~A B C D~Kubectl expose deployment hello-app --type="LoadBalancer"
 10~A B C ~Kubectl get service
-
 11~A B C D~Gcloud container clusters delete [CLUSTER-NAME]
-
 12~A B C D~Gcloud compute instances create example-instance-1 --machine-type n1-standard-1 --zone us-east4-c
-
 13~A B C D~Gcloud compute instances delete example-instance-1 --zone us-east4-c
-
 14~A B C ~Gcloud app deploy app.yaml
-
 15~A B C ~Gcloud app browse
-
 16~A B C D~Gcloud app deploy app.yaml --quiet
-
 17~A B C D~Gcloud config set project [project-ID]
-
 18~A B C~Gcloud iam list-grantable-roles [resource url ]
-
 19~A B C~Gcloud deployment-manager types list | grep [network |firewall|instance]
+20~B D A C~Gsutil cp gs://<bucket-name>/<dir-path>/package-1.1.tgz .
+21~A C B D~Gsutil ls -lh gs://<bucket-name>
+22~B A~Gsutil ls
+23~D A C B~Gsutil cp <filename> gs://<bucket-name>/<directory>/
+24~B C A~Gsutil cat gs://<bucket-name>/<filepath>/
+25~C A B~Gsutil rm gs://<bucket-name>/<filepath>
+26~C A B D~Gsutil mv <src-filepath> gs://<bucket-name>/<directory>/<dest-filepath>
+27~B D C A E~Gsutil cp -r ./conf gs://<bucket-name>/
+28~C A B D~Gsutil du -h gs://<bucket-name/<directory>
+29~A C B~Gsutil mb gs://<bucket-name>
+30~C A B~Gcloud config list
+31~B C D A~Gcloud config list project
+32~A B C D~Gcloud compute project-info describe
+33~B C E A D~Gcloud config set project <project-id>
+34~A C B~Gcloud auth list
+35~D C E A B~Gcloud config set account <ACCOUNT>
+36~C E A B D~Gcloud container clusters get-credentials <cluster-name>
+37~B D A C E~Gcloud config set compute/region us-west
+38~D C A E B~Gcloud config set compute/zone us-west1-b
+39~E D B C A~Gcloud auth activate-service-account --key-file <key-file>
+40~C B A~Gcloud auth list
+41~E B A C D~Gcloud config set account <ACCOUNT>
+42~C A B~Gcloud auth configure-docker
+43~B C A D~Gcloud auth <application-default> revoke
+44~A E F H G C D B~Gsutil -m acl set -R -a public-read gs://<bucket-name>/
+45~B A C~Gsutil config -a
+46~D B A E C~Gsutil iam ch user:denny@gmail.com:objectCreator,objectViewer gs://<bucket-name>
+47~A B E C D F~Gsutil iam ch -d user:denny@gmail.com:objectCreator,objectViewer gs://<bucket-name>
+48~B D A C~Gcloud compute instances list
+49~C B D A~Gcloud compute instance-templates list
+50~B C F H D E A I G~Gcloud compute instances describe "<instance-name>" --project "<project-name>" --zone "us-west2-a"
+51~D C B E A~Gcloud compute instances stop instance-2
+52~D C B A E~Gcloud compute instances start instance-2
+53~G F D I C M A J L B H K E~Gcloud compute instances create vm1 --image image-1 --tags test --zone "<zone>" --machine-type f1-micro
+54~B H C A G F D E~Gcloud compute ssh --project "<project-name>" --zone "<zone-name>" "<instance-name>"
+55~C G D B E A F~Gcloud compute copy-files example-instance:-/REMOTE-DIR -/LOCAL-DIR --zone us-central1-a
+56~D A F E B G C~Gcloud compute copy-files -/LOCAL-FILE-1 example-instance:-/REMOTE-DIR --zone us-central1-a
+57~C A D B~Gcloud compute disks list
+58~A C D B~Gcloud compute disk-types list
+59~A C D B~Gcloud compute snapshots list
+60~H C B D G A F I E~Gcloud compute disks snapshot <diskname> --snapshotname <name1> --zone us-central1-a
+61~A B D C~Gcloud compute networks list
+62~E B A D F C G~Gcloud compute networks describe <network-name> --format json
+63~D E B A C~Gcloud compute networks create <network-name>
+64~F B I J A D C E H G~Gcloud compute networks subnets create [subnet-name] --network [network-name] --range 10.5.4.0/24 --region us-east1
+65~D G E C A B F~Gcloud compute addresses create --region us-west2-a [static-ip-name]
+66~C D A B~Gcloud compute addresses list
+67~F C B G E A D~Gcloud compute addresses describe <ip-name> --region us-central1
+68~D B A C~Gcloud compute routes list
+69~D F B A C E~Gcloud dns record-sets list --zone my_zone
+70~A F B D E G C~Gcloud dns record-sets list --zone my_zone --limit=10
+71~B A C D~Gcloud compute firewall-rules list
+72~D C A B~Gcloud compute forwarding-rules list
+73~D B A C E~Gcloud compute firewall-rules describe <rule-name>
+74~A J F H E G I D B C~Gcloud compute firewall-rules create [rule-name] --network default --allow tcp:9200 tcp:3306
+75~I E B F G C A H D J~Gcloud compute firewall-rules update [rule-name] --network [network-name] --allow tcp:9200 tcp:9300
+76~D B C A~Gcloud compute images list
+77~A C B D~Gcloud container clusters list
+78~C A D E B~Gcloud container clusters get-credentials <cluster-name>
+79~B D A C~Gcloud sql instances list
+80~A D C B~Gcloud compute backend-services list
+81~A B C D~Gcloud compute http-health-checks list
+82~D A B C~Gcloud compute url-maps list

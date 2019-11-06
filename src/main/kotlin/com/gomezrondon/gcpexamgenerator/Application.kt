@@ -25,7 +25,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
         if (executeAtStart) {
 
             LOG.info(" \n");
-            LOG.info("Select (1) for regular questions. (2) for commands questions: ");
+            LOG.info("Select (1) for regular questions. \n       (2) for commands questions: ");
 
             val numberOption = readLine().toString().toLowerCase()
             LOG.info("Option selected: $numberOption \n")

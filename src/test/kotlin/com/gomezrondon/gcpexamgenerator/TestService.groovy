@@ -14,14 +14,6 @@ class TestService extends Specification {
     private final GenerateQuestionService service
 
     @Test
-    def "mini test"() {
-        when:
-        def trim = "ab cD e ".toLowerCase().trim()
-        then:
-        trim == "A B C D E"
-    }
-
-    @Test
     def "testing loading questions"() {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
@@ -34,7 +26,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 19
+        variable == 82
     }
 
 
@@ -76,5 +68,19 @@ class TestService extends Specification {
         then:
         results.get(3) == "Score: 100.0%"
     }
+
+    @Test
+    def "testing evaluating commands questions"() {
+        setup:
+        def questionsList = service.loadQuestions("commands-questions.txt","commands-answers.txt")
+        def numQuestions = 10
+        when:
+        List<Question> questions = service.generateQuestion(questionsList, numQuestions, true)
+        def answerList = questions.collect {it.answer}
+        def results = service.evaluateResults(questions, answerList)
+        then:
+        results.get(3) == "Score: 100.0%"
+    }
+
 
 }

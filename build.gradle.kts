@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.gomezrondon"
-version = "1.2.5-SNAPSHOT"
+version = "1.2.6-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 configurations {

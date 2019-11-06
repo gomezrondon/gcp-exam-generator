@@ -10,30 +10,21 @@ object work{
 
         question(
                 """
-How to  list types of deployment managed resources ? 
-, set the correct order of each command: \n
-(example:      X Y Z  list | grep [resource name] ")
+How to List all URL maps?
             """
         )
 
-/*        options( """
- a* true.
- b* false.
-            """)*/
-
-
         options( """
-A* gcloud
-B*   deployment-manager
-C*   types
-
-
-            """)
+A* compute
+B* url-maps
+C* list
+D* gcloud
+             """)
 
         answer( """
            
-           a b c* gcloud deployment-manager types list | grep [network |firewall|instance]
-           
+D A B C*  gcloud compute url-maps list
+         
             """)
     }
 

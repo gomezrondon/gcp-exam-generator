@@ -17,3 +17,66 @@
 17~How to set a project as default? , set the correct order of each command: \n (example: W X Y Z [project-ID] ") A. Gcloud B. Config C. Set D. Project
 18~How to list roles granted to a resource ? , set the correct order of each command: \n (example: X Y Z [resource url ] ") A. Gcloud B. Iam C. List-grantable-roles
 19~How to list types of deployment managed resources ? , set the correct order of each command: \n (example: X Y Z list | grep [resource name] ") A. Gcloud B. Deployment-manager C. Types
+20~How to Download file? A. Gs://<bucket-name>/<dir-path>/package-1.1.tgz B. Gsutil C. . D. Cp
+21~How to List all files in a buckets? A. Gsutil B. -lh C. Ls D. Gs://<bucket-name>
+22~How to List all buckets? A. Ls B. Gsutil
+23~How to Upload file? A. Cp B. Gs://<bucket-name>/<directory>/ C. <filename> D. Gsutil
+24~How to Cat file? A. Gs://<bucket-name>/<filepath>/ B. Gsutil C. Cat
+25~How to Delete file? A. Rm B. Gs://<bucket-name>/<filepath> C. Gsutil
+26~How to Move file? A. Mv B. <src-filepath> C. Gsutil D. Gs://<bucket-name>/<directory>/<dest-filepath>
+27~How to Copy folder? A. ./conf B. Gsutil C. -r D. Cp E. Gs://<bucket-name>/
+28~How to Show disk usage? A. Du B. -h C. Gsutil D. Gs://<bucket-name/<directory>
+29~How to Create bucket? A. Gsutil B. Gs://<bucket-name> C. Mb
+30~How to List projects? A. Config B. List C. Gcloud
+31~How to List projects? A. Project B. Gcloud C. Config D. List
+32~How to Show project info? A. Gcloud B. Compute C. Project-info D. Describe
+33~How to Switch project? A. Project B. Gcloud C. Config D. <project-id> E. Set
+34~How to Display a list of credentialed accounts? A. Gcloud B. List C. Auth
+35~How to Set the active account? A. Account B. <ACCOUNT> C. Config D. Gcloud E. Set
+36~How to Set kubectl context? A. Clusters B. Get-credentials C. Gcloud D. <cluster-name> E. Container
+37~How to Change region? A. Set B. Gcloud C. Compute/region D. Config E. Us-west
+38~How to Change zone? A. Set B. Us-west1-b C. Config D. Gcloud E. Compute/zone
+39~How to Authenticate client? A. <key-file> B. Activate-service-account C. --key-file D. Auth E. Gcloud
+40~How to Display a list of credentialed accounts? A. List B. Auth C. Gcloud
+41~How to Set the active account? A. Set B. Config C. Account D. <ACCOUNT> E. Gcloud
+42~How to Auth to GCP Container Registry? A. Auth B. Configure-docker C. Gcloud
+43~How to Revoke previous generated credential? A. <application-default> B. Gcloud C. Auth D. Revoke
+44~How to Make all files readable? A. Gsutil B. Gs://<bucket-name>/ C. -a D. Public-read E. -m F. Acl G. -R H. Set
+45~How to Config auth? A. Config B. Gsutil C. -a
+46~How to Grant bucket access? A. Ch B. Iam C. Gs://<bucket-name> D. Gsutil E. User:denny@gmail.com:objectCreator,objectViewer
+47~How to Remove bucket access? A. Gsutil B. Iam C. -d D. User:denny@gmail.com:objectCreator,objectViewer E. Ch F. Gs://<bucket-name>
+48~How to List all instances? A. Instances B. Gcloud C. List D. Compute
+49~How to List all instances templates? A. List B. Compute C. Gcloud D. Instance-templates
+50~How to Show instance info? A. "<project-name>" B. Gcloud C. Compute D. "<instance-name>" E. --project F. Instances G. "us-west2-a" H. Describe I. --zone
+51~How to Stop an instance? A. Instance-2 B. Instances C. Compute D. Gcloud E. Stop
+52~How to Start an instance? A. Start B. Instances C. Compute D. Gcloud E. Instance-2
+53~How to Create an instance? A. Image-1 B. --zone C. Vm1 D. Instances E. F1-micro F. Compute G. Gcloud H. "<zone>" I. Create J. --tags K. --machine-type L. Test M. --image
+54~How to SSH to instance? A. --project B. Gcloud C. Ssh D. "<zone-name>" E. "<instance-name>" F. --zone G. "<project-name>" H. Compute
+55~How to Download files? A. --zone B. Example-instance:-/REMOTE-DIR C. Gcloud D. Copy-files E. -/LOCAL-DIR F. Us-central1-a G. Compute
+56~How to Upload files? A. Compute B. Example-instance:-/REMOTE-DIR C. Us-central1-a D. Gcloud E. -/LOCAL-FILE-1 F. Copy-files G. --zone
+57~How to List all disks? A. Compute B. List C. Gcloud D. Disks
+58~How to List all disk types? A. Gcloud B. List C. Compute D. Disk-types
+59~How to List all snapshots? A. Gcloud B. List C. Compute D. Snapshots
+60~How to Create snapshot? A. --snapshotname B. Disks C. Compute D. Snapshot E. Us-central1-a F. <name1> G. <diskname> H. Gcloud I. --zone
+61~How to List all networks? A. Gcloud B. Compute C. List D. Networks
+62~How to Detail of one network? A. Networks B. Compute C. --format D. Describe E. Gcloud F. <network-name> G. Json
+63~How to Create network? A. Create B. Networks C. <network-name> D. Gcloud E. Compute
+64~How to Create subnet? \n (example: [complete with corresponding letters] --region us-east1) A. Create B. Compute C. --network D. [subnet-name] E. [network-name] F. Gcloud G. 10.5.4.0/24 H. --range I. Networks J. Subnets
+65~How to Get a static ip? A. --region B. Us-west2-a C. Create D. Gcloud E. Addresses F. [static-ip-name] G. Compute
+66~How to List all ip addresses? A. Addresses B. List C. Gcloud D. Compute
+67~How to Describe ip address? A. --region B. Addresses C. Compute D. Us-central1 E. <ip-name> F. Gcloud G. Describe
+68~How to List all routes? A. Routes B. Compute C. List D. Gcloud
+69~How to List of all record-sets in myzone? A. List B. Record-sets C. --zone D. Gcloud E. My_zone F. Dns
+70~How to List first 10 DNS records? A. Gcloud B. Record-sets C. --limit=10 D. List E. --zone F. Dns G. My_zone
+71~How to List all firewall rules? A. Compute B. Gcloud C. Firewall-rules D. List
+72~How to List all forwarding rules? A. Forwarding-rules B. List C. Compute D. Gcloud
+73~How to Describe one firewall rule? A. Firewall-rules B. Compute C. Describe D. Gcloud E. <rule-name>
+74~How to Create one firewall rule? A. Gcloud B. Tcp:9200 C. Tcp:3306 D. --allow E. [rule-name] F. Firewall-rules G. --network H. Create I. Default J. Compute
+75~How to Update one firewall rule? A. [network-name] B. Firewall-rules C. --network D. Tcp:9200 E. Compute F. Update G. [rule-name] H. --allow I. Gcloud J. Tcp:9300
+76~How to List all images? A. List B. Compute C. Images D. Gcloud
+77~How to List all container clusters? A. Gcloud B. Clusters C. Container D. List
+78~How to Set kubectl context? A. Container B. <cluster-name> C. Gcloud D. Clusters E. Get-credentials
+79~How to List all sql instances? A. Instances B. Gcloud C. List D. Sql
+80~How to List my backend services? A. Gcloud B. List C. Backend-services D. Compute
+81~How to List all my health check endpoints? A. Gcloud B. Compute C. Http-health-checks D. List
+82~How to List all URL maps? A. Compute B. Url-maps C. List D. Gcloud
