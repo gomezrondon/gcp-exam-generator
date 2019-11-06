@@ -71,8 +71,8 @@
 71~B A C D~Gcloud compute firewall-rules list
 72~D C A B~Gcloud compute forwarding-rules list
 73~D B A C E~Gcloud compute firewall-rules describe <rule-name>
-74~A J F H E G I D B C~Gcloud compute firewall-rules create [rule-name] --network default --allow tcp:9200 tcp:3306
-75~I E B F G C A H D J~Gcloud compute firewall-rules update [rule-name] --network [network-name] --allow tcp:9200 tcp:9300
+74~A J F H E G I D B~Gcloud compute firewall-rules create [rule-name] --network [network-name] --allow tcp:9200 tcp:3306
+75~I E B F G C A H D~Gcloud compute firewall-rules update [rule-name] --network [network-name] --allow tcp:9200 tcp:9300
 76~D B C A~Gcloud compute images list
 77~A C B D~Gcloud container clusters list
 78~C A D E B~Gcloud container clusters get-credentials <cluster-name>

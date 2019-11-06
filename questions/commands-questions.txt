@@ -71,8 +71,8 @@
 71~How to List all firewall rules? A. Compute B. Gcloud C. Firewall-rules D. List
 72~How to List all forwarding rules? A. Forwarding-rules B. List C. Compute D. Gcloud
 73~How to Describe one firewall rule? A. Firewall-rules B. Compute C. Describe D. Gcloud E. <rule-name>
-74~How to Create one firewall rule? A. Gcloud B. Tcp:9200 C. Tcp:3306 D. --allow E. [rule-name] F. Firewall-rules G. --network H. Create I. Default J. Compute
-75~How to Update one firewall rule? A. [network-name] B. Firewall-rules C. --network D. Tcp:9200 E. Compute F. Update G. [rule-name] H. --allow I. Gcloud J. Tcp:9300
+74~How to Create one firewall rule? A. Gcloud B. tcp:9200 tcp:3306 D. --allow E. [rule-name] F. Firewall-rules G. --network H. Create I. [network-name] J. Compute
+75~How to Update one firewall rule? A. [network-name] B. Firewall-rules C. --network D. Tcp:9200 Tcp:9300 E. Compute F. Update G. [rule-name] H. --allow I. Gcloud
 76~How to List all images? A. List B. Compute C. Images D. Gcloud
 77~How to List all container clusters? A. Gcloud B. Clusters C. Container D. List
 78~How to Set kubectl context? A. Container B. <cluster-name> C. Gcloud D. Clusters E. Get-credentials
