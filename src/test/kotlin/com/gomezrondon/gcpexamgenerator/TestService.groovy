@@ -42,18 +42,46 @@ class TestService extends Specification {
     }
 
     @Test
-    def "testing evaluating questions"() {
+    def "testing getSpecificQuestions method"() {
         setup:
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
-        def numQuestions = 10
-        when:
-        List<Question> questions = service.generateQuestion(questionsList, numQuestions, true)
-        def anwerList = questions.collect {it.answer}
-        def results = service.evaluateResults(questions, anwerList)
+        def numQuestionsList = [441, 505]
+        when:"execute the method with a set of questions"
+        List<Question> questions = service.getSpecificQuestions(questionsList, numQuestionsList)
         then:
-        results.get(3) == "Score: 100.0%"
+        questions.size() == 2
+        questions.getAt("id") == [441, 505]
     }
 
+
+    @Test
+    def "testing correct response with incorrect order"() {
+        setup:"we set keepOrder = false"
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def numQuestionsList = [441]
+        def keepOrder = false
+        when:
+        List<Question> questions = service.getSpecificQuestions(questionsList, numQuestionsList)
+        def anwerList = ["d a c "]
+        def results = service.evaluateResults(questions, anwerList, keepOrder)
+        then:" we should get a correct response"
+        results.get(3).trim() == "Score: 100.0%"
+    }
+
+
+    @Test
+    def "testing correct response with incorrect order 2"() {
+        setup:"we set keepOrder = true"
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def numQuestionsList = [441]
+        def keepOrder = true
+        when:
+        List<Question> questions = service.getSpecificQuestions(questionsList, numQuestionsList)
+        def anwerList = ["d a c "]
+        def results = service.evaluateResults(questions, anwerList, keepOrder)
+        then:"This should FAIL"
+        results.get(3).trim() == "Score: 0.0%"
+    }
 
     @Test
     def "testing evaluating questions without randomness"() {
@@ -61,12 +89,13 @@ class TestService extends Specification {
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
         def numQuestions = 10
         def randomness = false
+        def keepOrder = false //normal multiple questions dont need specific order
         when:
         List<Question> questions = service.generateQuestion(questionsList, numQuestions, randomness)
         def anwerList = questions.collect {it.answer}
-        def results = service.evaluateResults(questions, anwerList)
+        def results = service.evaluateResults(questions, anwerList, keepOrder)
         then:
-        results.get(3) == "Score: 100.0%"
+        results.get(3).trim() == "Score: 100.0%"
     }
 
     @Test
@@ -74,12 +103,13 @@ class TestService extends Specification {
         setup:
         def questionsList = service.loadQuestions("commands-questions.txt","commands-answers.txt")
         def numQuestions = 10
+        def keepOrder = true // command questions need specific order
         when:
         List<Question> questions = service.generateQuestion(questionsList, numQuestions, true)
         def answerList = questions.collect {it.answer}
-        def results = service.evaluateResults(questions, answerList)
+        def results = service.evaluateResults(questions, answerList, keepOrder)
         then:
-        results.get(3) == "Score: 100.0%"
+        results.get(3).trim() == "Score: 100.0%"
     }
 
 

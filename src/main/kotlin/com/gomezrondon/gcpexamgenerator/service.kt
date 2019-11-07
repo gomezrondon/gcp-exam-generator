@@ -33,10 +33,24 @@ class GenerateQuestionService{
         return readLines
     }
 
+
+    fun getSpecificQuestions(listOfQuestions: MutableList<Question>, espeQuestList: MutableList<Int>): MutableList<Question> {
+
+        var question: MutableList<Question> = mutableListOf()
+
+        if (listOfQuestions.isNotEmpty()){
+            espeQuestList.forEach { eqId ->
+                val firstQuestion = listOfQuestions.filter { it.id == eqId }.first()
+                question.add(firstQuestion)
+            }
+        }
+        return question
+    }
+
     fun generateQuestion(listOfQuestions: MutableList<Question>, numberOption: Int, isRandom:Boolean = true) : MutableList<Question>{
 
 
-        var question: MutableList<Question> = mutableListOf<Question>()
+        var question: MutableList<Question> = mutableListOf()
      //   var responses = mutableListOf<String>()
         var count = 1
         while (count <= numberOption && listOfQuestions.isNotEmpty()){
@@ -144,13 +158,21 @@ class GenerateQuestionService{
         return replace.trim()
     }
 
-    fun evaluateResults( questions: MutableList<Question>, responses:MutableList<String>): List<String> {
+    fun evaluateResults( questions: MutableList<Question>, responses:MutableList<String>, keepOrder:Boolean=false): List<String> {
         var printResult = mutableListOf<String>()
         var wrongList = mutableListOf<Question>()
         var correct = 0
         var wrong = 0
         responses.forEachIndexed { index, response ->
-            if (questions.get(index).answer == response) {
+            var correctAnwers = questions.get(index).answer.trim()
+            var userAnswers = response.trim()
+
+            if (!keepOrder) {
+                correctAnwers = correctAnwers.split(" ").sorted().joinToString(" ")
+                userAnswers = userAnswers.split(" ").sorted().joinToString(" ")
+            }
+
+            if (correctAnwers == userAnswers) {
                 correct ++
                 wrongList.add(questions.get(index).copy(explanation = "OK"))
             }else{
@@ -160,15 +182,15 @@ class GenerateQuestionService{
         }
 
         val total = correct + wrong
-        printResult.add("Total questions: $total")
-        printResult.add("Correct: $correct")
-        printResult.add("wrong: $wrong")
+        printResult.add("Total questions: $total \n")
+        printResult.add("Correct: $correct \n")
+        printResult.add("wrong: $wrong \n")
         val temp = correct.toDouble()*100
         val porcentage:Double = temp/total.toDouble()
-        printResult.add("Score: $porcentage%")
-        printResult.add("============ Answers ============")
+        printResult.add("Score: $porcentage%\n")
+        printResult.add("============ Answers ============ \n")
         wrongList.forEachIndexed{index, it ->
-            printResult.add("${index+1}. ${it.answer.toUpperCase()}. ${it.explanation}")
+            printResult.add("${index+1}. ${it.answer.toUpperCase()}. ${it.explanation}  \n")
         }
 
         printResult.add("\n")

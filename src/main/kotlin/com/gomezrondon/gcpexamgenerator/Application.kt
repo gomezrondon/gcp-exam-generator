@@ -31,16 +31,19 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
             LOG.info("Option selected: $numberOption \n")
             when (numberOption) {
                 "1" -> {
+                    val isRandom = false
+                    val keepOrder = false
                     val questionsfileName = "questions.txt"
                     val answerfileName = "answers.txt"
-                    val output = generateQuestions(questionsfileName, answerfileName)
+                    val output = generateQuestions(questionsfileName, answerfileName, isRandom, keepOrder)
                     LOG.info(output)
                 }
 
                 "2" -> {
+                    val isRandom = true
                     val questionsfileName = "commands-questions.txt"
                     val answerfileName = "commands-answers.txt"
-                    val output = generateQuestions(questionsfileName, answerfileName)
+                    val output = generateQuestions(questionsfileName, answerfileName, isRandom)
                     LOG.info(output)
                 }
             }
@@ -52,7 +55,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
 
     }
 
-    private fun generateQuestions(questionsfileName: String, answerfileName: String): String {
+    private fun generateQuestions(questionsfileName: String, answerfileName: String, isRandom:Boolean, keepOrder:Boolean=true): String {
         val questionsList = service.loadQuestions(questionsfileName, answerfileName)
 
         LOG.info("There are ${questionsList.size} Questions! \n")
@@ -62,9 +65,9 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
         val numberOption = readLine().toString().toLowerCase()
         LOG.info("Number Of questions: $numberOption \n")
 
-        var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), true);
+        var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), isRandom);
         val responses = service.askQuestions(questions)
-        val results = service.evaluateResults(questions, responses)
+        val results = service.evaluateResults(questions, responses, keepOrder)
 
         //printing results
 
