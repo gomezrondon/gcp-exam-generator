@@ -8,10 +8,8 @@ object work2{
         texto(
 
                 """
-List all sql instances	| gcloud sql instances list
- List my backend services	| gcloud compute backend-services list
-List all my health check endpoints	| gcloud compute http-health-checks list
-List all URL maps	| gcloud compute url-maps list
+grant view access to files on a bucket	| gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
+
                     
                 """.trim()
 

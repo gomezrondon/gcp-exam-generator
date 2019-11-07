@@ -10,20 +10,21 @@ object work{
 
         question(
                 """
-How to List all URL maps?
+How to grant view access to files on a bucket?
             """
         )
 
         options( """
-A* compute
-B* url-maps
-C* list
-D* gcloud
+A* gs://[bucket]/[folder]
+B* gsutil
+C* ch
+D* allUsers:objectViewer
+E* iam
              """)
 
         answer( """
            
-D A B C*  gcloud compute url-maps list
+B E C D A*  gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
          
             """)
     }

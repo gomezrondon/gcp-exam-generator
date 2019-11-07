@@ -41,7 +41,7 @@
 41~How to Set the active account? A. Set B. Config C. Account D. <ACCOUNT> E. Gcloud
 42~How to Auth to GCP Container Registry? A. Auth B. Configure-docker C. Gcloud
 43~How to Revoke previous generated credential? A. <application-default> B. Gcloud C. Auth D. Revoke
-44~How to Make all files readable? A. Gsutil B. Gs://<bucket-name>/ C. -a D. Public-read E. -m F. Acl G. -R H. Set
+44~How to Make all files readable using ACL? A. Gsutil B. Gs://<bucket-name>/ C. -a D. Public-read E. -m F. Acl G. -R H. Set
 45~How to Config auth? A. Config B. Gsutil C. -a
 46~How to Grant bucket access? A. Ch B. Iam C. Gs://<bucket-name> D. Gsutil E. User:denny@gmail.com:objectCreator,objectViewer
 47~How to Remove bucket access? A. Gsutil B. Iam C. -d D. User:denny@gmail.com:objectCreator,objectViewer E. Ch F. Gs://<bucket-name>
@@ -80,3 +80,4 @@
 80~How to List my backend services? A. Gcloud B. List C. Backend-services D. Compute
 81~How to List all my health check endpoints? A. Gcloud B. Compute C. Http-health-checks D. List
 82~How to List all URL maps? A. Compute B. Url-maps C. List D. Gcloud
+83~How to grant view access to all files to everybody on a bucket? A. Gs://[bucket]/[folder] B. Gsutil C. Ch D. AllUsers:objectViewer E. Iam

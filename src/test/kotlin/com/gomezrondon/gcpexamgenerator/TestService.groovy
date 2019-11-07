@@ -26,7 +26,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 82
+        variable == 83
     }
 
 
