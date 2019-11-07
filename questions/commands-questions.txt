@@ -81,3 +81,4 @@
 81~How to List all my health check endpoints? A. Gcloud B. Compute C. Http-health-checks D. List
 82~How to List all URL maps? A. Compute B. Url-maps C. List D. Gcloud
 83~How to grant view access to all files to everybody on a bucket? A. Gs://[bucket]/[folder] B. Gsutil C. Ch D. AllUsers:objectViewer E. Iam
+84~How to create an unmanaged instance group? \n Hint: U V W unmanaged Y [INSTANCE_GROUP_NAME] A. Compute B. [INSTANCE_GROUP_NAME] C. Gcloud D. Unmanaged E. Create F. Instance-groups

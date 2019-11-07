@@ -80,5 +80,5 @@
 80~A D C B~Gcloud compute backend-services list
 81~A B C D~Gcloud compute http-health-checks list
 82~D A B C~Gcloud compute url-maps list
-
 83~B E C D A~Gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
+84~C A F D E B~Gcloud compute instance-groups unmanaged create [INSTANCE_GROUP_NAME]
