@@ -25,7 +25,10 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
         if (executeAtStart) {
 
             LOG.info(" \n");
-            LOG.info("Select (1) for regular questions. \n       (2) for commands questions: ");
+            LOG.info("Select  1) for All regular questions. \n");
+            LOG.info("          1.1) chapter 6 - Managing Virtual Machines \n");
+            LOG.info("          1.2) chapter 7 - Computing with Kubernetes \n");
+            LOG.info("        2) for commands questions: ");
 
             val numberOption = readLine().toString().toLowerCase()
             LOG.info("Option selected: $numberOption \n")
@@ -35,15 +38,34 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
                     val keepOrder = false
                     val questionsfileName = "questions.txt"
                     val answerfileName = "answers.txt"
-                    val output = generateQuestions(questionsfileName, answerfileName, isRandom, keepOrder)
+                    val questionsList = service.loadQuestions(questionsfileName, answerfileName)
+                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom, keepOrder)
                     LOG.info(output)
                 }
-
+                "1.1" -> {
+                    val isRandom = false
+                    val keepOrder = false
+                    val questionsfileName = "questions.txt"
+                    val answerfileName = "answers.txt"
+                    val questionsList = service.loadSubSetQuestions(questionsfileName, answerfileName,"--- chapter 6","--- chapter 7")
+                    val output = generateQuestions(questionsList,questionsfileName, answerfileName, isRandom, keepOrder)
+                    LOG.info(output)
+                }
+                "1.2" -> {
+                    val isRandom = false
+                    val keepOrder = false
+                    val questionsfileName = "questions.txt"
+                    val answerfileName = "answers.txt"
+                    val questionsList = service.loadSubSetQuestions(questionsfileName, answerfileName,"--- chapter 7","--- chapter 8")
+                    val output = generateQuestions(questionsList,questionsfileName, answerfileName, isRandom, keepOrder)
+                    LOG.info(output)
+                }
                 "2" -> {
                     val isRandom = true
                     val questionsfileName = "commands-questions.txt"
                     val answerfileName = "commands-answers.txt"
-                    val output = generateQuestions(questionsfileName, answerfileName, isRandom)
+                    val questionsList: List<Question> = service.loadQuestions(questionsfileName, answerfileName)
+                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom)
                     LOG.info(output)
                 }
             }
@@ -55,8 +77,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
 
     }
 
-    private fun generateQuestions(questionsfileName: String, answerfileName: String, isRandom:Boolean, keepOrder:Boolean=true): String {
-        val questionsList = service.loadQuestions(questionsfileName, answerfileName)
+    private fun generateQuestions(questionsList: List<Question>, questionsfileName: String, answerfileName: String, isRandom:Boolean, keepOrder:Boolean=true): String {
 
         LOG.info("There are ${questionsList.size} Questions! \n")
         LOG.info(" \n")

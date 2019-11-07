@@ -19,18 +19,55 @@ class GenerateQuestionService{
                 .map { Question(it[0].toInt(),it[1].trim())}
 
 
-      File("""questions${File.separator}$answerfileName""").readLines()
-                .filter { it.isNotEmpty() }
-                .filter { it.length > 0 }
-                .forEach {
-                    val split = it.split("~")
-                    val index = split[0].toInt()
-                    readLines.first { it.id ==index }.answer = split[1].toLowerCase().trim()
-                    readLines.first { it.id ==index }.explanation = split[2].trim()
-                   // println(readLines.get(index))
-                }
+        addAnswersToQuestions(answerfileName, readLines)
 
         return readLines
+    }
+
+
+
+    fun loadSubSetQuestions(questionsfileName:String, answerfileName:String, start:String, ends:String): List<Question> {
+        val readLines = File("""questions${File.separator}$questionsfileName""").readLines()
+                .filter { it.isNotEmpty() }
+
+        val indexOfFirst = readLines.indexOfFirst { it.startsWith(start) }
+        val indexOfLast = readLines.indexOfLast { it.startsWith(ends) }
+
+        val take = readLines.drop(indexOfFirst)
+                .take(indexOfLast - indexOfFirst)
+                .filter { it.isNotEmpty() }
+                .filter { !it.startsWith("---") }
+                .map { it.split("~") }
+                .map { Question(it[0].toInt(),it[1].trim())}
+
+        addAnswersToQuestions(answerfileName, take)
+
+        return take
+    }
+
+
+    private fun addAnswersToQuestions(answerfileName: String, readLines: List<Question>) {
+
+        val questIdList = readLines.map { it.id }
+
+        File("""questions${File.separator}$answerfileName""").readLines()
+                .filter { it.isNotEmpty() }
+                .filter { it.length > 0 }
+                .map {
+                    val split = it.split("~")
+                    val index = split[0].toInt()
+                    Pair(index, split)
+                }
+                .filter { questIdList.contains(it.first) }
+                .forEach { it ->
+                    val index = it.first
+                    val split = it.second
+
+                    readLines.first { question -> question.id == index }.answer = split[1].toLowerCase().trim()
+                    readLines.first { question -> question.id == index }.explanation = split[2].trim()
+                    // println(readLines.get(index))
+
+                }
     }
 
 

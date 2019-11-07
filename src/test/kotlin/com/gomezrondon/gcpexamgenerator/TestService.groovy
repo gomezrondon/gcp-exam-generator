@@ -22,6 +22,32 @@ class TestService extends Specification {
     }
 
     @Test
+    def "testing loading subset questions"() {
+        when:
+        def variable = service.loadSubSetQuestions("questions.txt","answers.txt","--- chapter 9","--- chapter 10").size()
+        then:
+        variable == 20
+    }
+
+    @Test
+    def "testing loading subset questions (returns All)"() {
+        when:
+        def variable = service.loadSubSetQuestions("questions.txt","answers.txt","","").size()
+        then:
+        variable == 504
+    }
+
+    @Test
+    def "testing loading subset questions with start but not end"() {
+        setup:"start at --- chapter 11"
+        def start = "--- chapter 11"
+        when:
+        def variable = service.loadSubSetQuestions("questions.txt","answers.txt", start,"").size()
+        then:
+        variable == 266
+    }
+
+    @Test
     def "testing loading from command questions"() {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
