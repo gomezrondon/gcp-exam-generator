@@ -82,3 +82,4 @@
 82~D A B C~Gcloud compute url-maps list
 83~B E C D A~Gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
 84~C A F D E B~Gcloud compute instance-groups unmanaged create [INSTANCE_GROUP_NAME]
+85~D E B A C F~Gcloud compute disks snapshot instance-1 --snapshot-names=snapshot-1

@@ -82,3 +82,4 @@
 82~How to List all URL maps? A. Compute B. Url-maps C. List D. Gcloud
 83~How to grant view access to all files to everybody on a bucket? A. Gs://[bucket]/[folder] B. Gsutil C. Ch D. AllUsers:objectViewer E. Iam
 84~How to create an unmanaged instance group? \n Hint: U V W unmanaged Y [INSTANCE_GROUP_NAME] A. Compute B. [INSTANCE_GROUP_NAME] C. Gcloud D. Unmanaged E. Create F. Instance-groups
+85~After setting your project as default, \n How to create a snapshot of a instance disk? \n Hint: U V W X Y Z --zone=us-central1-a A. Snapshot B. Disks C. Instance-1 D. Gcloud E. Compute F. --snapshot-names=snapshot-1
