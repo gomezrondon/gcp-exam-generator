@@ -83,8 +83,8 @@ class QuestionBuilder{
 
 
     fun build():txtQuestion {
-
-        val lastCount = getLastQuestionCount("commands-questions.txt") + 1
+        val lastCount = getLastQuestionCount("questions.txt") + 1
+      //  val lastCount = getLastQuestionCount("commands-questions.txt") + 1
 
         question = question?.replace("\n","")
         val options = option.map { it.key.toUpperCase() + ". " + it.value.trim().capitalize()}.joinToString(" ")

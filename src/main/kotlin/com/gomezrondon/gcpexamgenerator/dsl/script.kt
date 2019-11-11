@@ -56,14 +56,15 @@ private fun mainProcess() {
 
 }
 
+/*
 fun addQuestionToFile(question: String, answer: String) {
     File("questions${File.separator}commands-questions.txt").appendText("\n"+question+"\n")
     File("questions${File.separator}commands-answers.txt").appendText("\n"+answer+"\n")
 }
+*/
 
 
-/*
 fun addQuestionToFile(question: String, answer: String) {
     File("questions${File.separator}questions.txt").appendText("\n"+question+"\n")
     File("questions${File.separator}answers.txt").appendText("\n"+answer+"\n")
-}*/
+}

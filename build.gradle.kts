@@ -22,6 +22,7 @@ repositories {
 }
 
 dependencies {
+	implementation("org.beryx:text-io:3.3.0")
 
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")

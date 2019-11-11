@@ -551,3 +551,19 @@
 505~B C~Ability to ssh in and Wider range of choices for application language.
 
 506~A~True.
+
+507~C~Gcloud projects get—iam—policy whizlabs—ace https://cloud.google.com/sdk/gcloud/reference/projects/get-iam-policy
+
+508~C~Average CPU usage of the instance group is less than 70%
+
+509~D~Publisher is not a primitive role in Google Cloud Platform, but a predefined role. see link Google Cloud Identity and Access Management Overview https://cloud.google.com/iam/docs/overview
+
+510~D~Execute the command gcloud compute instances list. see link: gcloud compute instances list -  list Google Cloud Engine Instances https://cloud.google.com/sdk/gcloud/reference/compute/instances/list
+
+511~A~To create a google cloud engine virtual machine instance, gcloud compute instances create command is used. The number of CPUs is specified with the machine type parameter. For this, use gcloud compute machine-types list to get a list of available machine types. If not specified, the default type is n1-standard-1. Here, the cloud engineer is using 4 CPUs so it will be n1-standard-4 followed by the VM name.
+
+512~B~Gcloud container clusters create chog—cluster—io ——num—nodes=4
+
+513~C~App.yaml, The app.yaml file allows you to configure the App Engine app’s settings. The app.yaml file contains information about the app’s code and represents how the URL paths will correspond to the static files and request handlers.
+
+514~C~Gsutil mb, Gsutil is the command line utility used to work with cloud storage.The mb command is used to create a new bucket in cloud storage.
