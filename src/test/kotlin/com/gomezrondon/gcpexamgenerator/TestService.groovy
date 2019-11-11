@@ -18,7 +18,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 505
+        variable == 513
     }
 
     @Test
@@ -34,7 +34,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt","","").size()
         then:
-        variable == 504
+        variable == 513
     }
 
     @Test
@@ -44,7 +44,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt", start,"").size()
         then:
-        variable == 266
+        variable == 281
     }
 
     @Test
@@ -52,7 +52,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 83
+        variable == 85
     }
 
 
