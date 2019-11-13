@@ -22,30 +22,41 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
 
         if (executeAtStart) {
 
-            LOG.info("Select  1) for All regular questions. \n");
-            LOG.info("          1.1) chapter 1 - Overview of Google Cloud Platform \n");
-            LOG.info("          1.2) chapter 2 - Google Cloud Computing Services \n");
-            LOG.info("          1.3) chapter 3 - Projects, Service Accounts, and Billing \n");
-            LOG.info("          1.4) chapter 4 - Introduction to Computing in Google Cloud \n");
-            LOG.info("          1.5) chapter 5 - Compute Engine Virtual Machines \n");
-            LOG.info("          1.6) chapter 6 - Managing Virtual Machines \n");
-            LOG.info("          1.7) chapter 7 - Computing with Kubernetes \n");
-            LOG.info("          1.8) chapter 8 - Managing Kubernetes Clusters \n");
-            LOG.info("          1.9) chapter 9 - Computing with App Engine \n");
-            LOG.info("          1.10) chapter 10 - Computing with Cloud Functions \n");
-            LOG.info("          1.11) chapter 11 - Planning Storage in the Cloud \n");
-            LOG.info("          1.12) chapter 12 - Deploying Storage in Google Cloud Platform \n");
-            LOG.info("          1.13) chapter 10 - Loading Data into Storages \n");
-            LOG.info("          1.14) chapter 14 - Networking in the Cloud: Virtual Private Clouds and  Virtual Private Networks \n");
-            LOG.info("          1.15) chapter 15 - Networking in the Cloud: DNS, Load Balancing,  and IP Addressing \n");
-            LOG.info("          1.16) chapter 16 - Deploying Applications with Cloud Launcher and  Deployment Manager \n");
-            LOG.info("          1.17) chapter 17 - Configuring Access and Security \n");
-            LOG.info("          1.18) chapter 18 - Monitoring, Logging, and Cost Estimating \n");
-            LOG.info("        2) for Custom Mix questions \n");
-            LOG.info("        3) for commands questions: ");
+            val menu ="""
+        Select  
+        1) for All regular questions. 
+          1.1) chapter 1 - Overview of Google Cloud Platform 
+          1.2) chapter 2 - Google Cloud Computing Services 
+          1.3) chapter 3 - Projects, Service Accounts, and Billing 
+          1.4) chapter 4 - Introduction to Computing in Google Cloud 
+          1.5) chapter 5 - Compute Engine Virtual Machines 
+          1.6) chapter 6 - Managing Virtual Machines 
+          1.7) chapter 7 - Computing with Kubernetes 
+          1.8) chapter 8 - Managing Kubernetes Clusters 
+          1.9) chapter 9 - Computing with App Engine 
+          1.10) chapter 10 - Computing with Cloud Functions 
+          1.11) chapter 11 - Planning Storage in the Cloud 
+          1.12) chapter 12 - Deploying Storage in Google Cloud Platform 
+          1.13) chapter 10 - Loading Data into Storages 
+          1.14) chapter 14 - Networking in the Cloud: Virtual Private Clouds and  Virtual Private Networks 
+          1.15) chapter 15 - Networking in the Cloud: DNS, Load Balancing,  and IP Addressing 
+          1.16) chapter 16 - Deploying Applications with Cloud Launcher and  Deployment Manager 
+          1.17) chapter 17 - Configuring Access and Security 
+          1.18) chapter 18 - Monitoring, Logging, and Cost Estimating 
+        2) for Custom Mix questions 
+        3) for commands questions
+        
+        R?:
+    """.trimIndent()
+
+            println(menu)
+            LOG.info(menu)
 
             val numberOption = readLine().toString().toLowerCase()
-            LOG.info("Option selected: $numberOption \n")
+
+            val text = "Option selected: $numberOption \n"
+            println(text)
+            LOG.info(text)
 
             val isRandom = true
             val keepOrder = false
@@ -58,6 +69,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
                 "1" -> {
                     val questionsList = service.loadQuestions(questionsfileName, answerfileName)
                     val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom, keepOrder)
+                    println(output)
                     LOG.info(output)
                 }
                 "1.1" -> {
@@ -164,6 +176,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
                     val answerfileName = "commands-answers.txt"
                     val questionsList: List<Question> = service.loadQuestions(questionsfileName, answerfileName)
                     val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom)
+                    println(output)
                     LOG.info(output)
                 }
             }
@@ -178,17 +191,25 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
     private fun generateChapterQuestions(questionsfileName: String, answerfileName: String, start: String, ends: String, isRandom: Boolean, keepOrder: Boolean) {
         val questionsList = service.loadSubSetQuestions(questionsfileName, answerfileName, start, ends)
         val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom, keepOrder)
+        println(output)
         LOG.info(output)
     }
 
     private fun generateQuestions(questionsList: List<Question>, questionsfileName: String, answerfileName: String, isRandom:Boolean, keepOrder:Boolean=true): String {
 
-        LOG.info("There are ${questionsList.size} Questions! \n")
-        LOG.info(" \n")
-        LOG.info("Select number of Questions: 5, 10, 20 ...: ");
+        var text = """
+            There are ${questionsList.size} Questions! 
+            
+            Select number of Questions: 5, 10, 20 ...: 
+        """.trimIndent()
+
+        println(text)
+        LOG.info(text);
 
         val numberOption = readLine().toString().toLowerCase()
-        LOG.info("Number Of questions: $numberOption \n")
+        text = "Number Of questions: $numberOption \n"
+        println(text)
+        LOG.info(text)
 
         var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), isRandom);
         val responses = service.askQuestions(questions)

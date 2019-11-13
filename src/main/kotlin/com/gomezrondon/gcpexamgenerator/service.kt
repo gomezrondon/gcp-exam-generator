@@ -1,5 +1,7 @@
 package com.gomezrondon.gcpexamgenerator
 
+import org.beryx.textio.TextIO
+import org.beryx.textio.TextIoFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -160,29 +162,42 @@ class GenerateQuestionService{
 
 
         questions.forEachIndexed { index,  qton ->
-
+            var text = StringBuilder()
             val tempIndex = index + 1
 
-            LOG.info("$tempIndex) Question: ")
-
+            //LOG.info("$tempIndex) Question: ")
+            text.append("$tempIndex) Question: ")
 
             qton.question.split("|").forEach {
                it.split("""\\n""".toRegex()).forEach {
                     it.split(" ").chunked(20).map { it.joinToString(" ") }.forEach {
-                        LOG.info(it + "\n")
+                       // LOG.info(it + "\n")
+                        text.append(it + "\n")
                     }
                 }
             }
 
-            LOG.info("\n")
-            LOG.info("Response?: ")
-            var response = readLine()?.let { formatAnswers(it) }
-            LOG.info("Response ( $response ) \n")
+            //LOG.info("\n")
+            //LOG.info("Response?: ")
+            text.append("\n")
+            val question = text.append("Response?: ").toString()
+           // var response = readLine()?.let { formatAnswers(it) }
+
+            val textIO: TextIO = TextIoFactory.getTextIO()
+            var response = textIO.newStringInputReader()
+                    //.withDefaultValue("1")
+                    //.withPattern(regexPattern)
+                    .read(question)
+            textIO.dispose()
+
+            LOG.info("$question \n")
+            LOG.info("Your Response: ($response) \n")
 
 
             if (response != null) {
                 responses.add(response)
             }
+            println("")
             LOG.info("\n")
         }
 
