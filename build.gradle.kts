@@ -45,3 +45,11 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "1.8"
 	}
 }
+
+
+
+tasks.register<Copy>("copyJar") {
+	dependsOn("build")
+	from(file("$buildDir/libs/gcp-exam-generator-1.5.6-SNAPSHOT.jar"))
+	into(file("C:\\temp\\test\\gcp_exam_generator"))
+}
