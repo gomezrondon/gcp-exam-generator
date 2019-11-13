@@ -14,7 +14,7 @@ import java.io.File
 
 }*/
 
-private fun mainProcess() {
+private fun mainProcess(prfijo:String="") {
 
     val build = work.build
     val qtemp = build.question
@@ -41,7 +41,7 @@ private fun mainProcess() {
 
 
     when (yesOrNo) {
-        "y" -> addQuestionToFile(qtemp, atemp)
+        "y" -> addQuestionToFile(qtemp, atemp,"${prfijo}questions.txt","${prfijo}answers.txt")
     }
 
     val rangeTo = 'A'..'G'
@@ -64,7 +64,7 @@ fun addQuestionToFile(question: String, answer: String) {
 */
 
 
-fun addQuestionToFile(question: String, answer: String) {
-    File("questions${File.separator}questions.txt").appendText("\n"+question+"\n")
-    File("questions${File.separator}answers.txt").appendText("\n"+answer+"\n")
+fun addQuestionToFile(question: String, answer: String, fileQ:String, fileA:String) {
+    File("questions${File.separator}$fileQ").appendText("\n"+question+"\n")
+    File("questions${File.separator}$fileA").appendText("\n"+answer+"\n")
 }

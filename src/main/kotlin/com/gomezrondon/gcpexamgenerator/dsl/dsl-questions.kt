@@ -6,25 +6,32 @@ import java.io.File
 
 
 object work{
-    var build = createTextQuestion{
+    var build = createCommandQuestion{
+
+        fileName(
+              //  "questions.txt"
+        "commands-questions.txt"
+        )
 
         question(
                 """
-How to grant view access to files on a bucket?
+How to create an IAM role? \n
+example: gcloud U V W X Y Z --file role-definition.yaml
             """
         )
 
         options( """
-A* gs://[bucket]/[folder]
-B* gsutil
-C* ch
-D* allUsers:objectViewer
+A* viewer-role
+B* --project
+C* create
+D* [PROJECT_ID]
 E* iam
+F* roles
              """)
 
         answer( """
            
-B E C D A*  gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
+E F C A B D* gcloud iam roles create viewer-role --project [PROJECT_ID] --file role-definition.yaml
          
             """)
     }
@@ -33,17 +40,22 @@ B E C D A*  gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
 
 
 
-fun createTextQuestion( c: QuestionBuilder.()-> Unit): txtQuestion {
+fun createCommandQuestion( c: QuestionBuilder.()-> Unit): txtQuestion {
     val builder = QuestionBuilder()
     c(builder)
-    return builder.build()
+    return builder.build(builder.file)
 }
 
 class QuestionBuilder{
 
+    var file:String= "questions.txt"
     var question:String?= null
     var option: Map<String, String> = LinkedHashMap()
     var answer: Map<String, String> = LinkedHashMap()
+
+    fun fileName(file: String) {
+        this.file = file
+    }
 
     fun question(question:String){
         this.question = question.trim()
@@ -82,9 +94,9 @@ class QuestionBuilder{
     }
 
 
-    fun build():txtQuestion {
-        val lastCount = getLastQuestionCount("questions.txt") + 1
-      //  val lastCount = getLastQuestionCount("commands-questions.txt") + 1
+    fun build(q_file: String):txtQuestion {
+
+        val lastCount = getLastQuestionCount(q_file) + 1
 
         question = question?.replace("\n","")
         val options = option.map { it.key.toUpperCase() + ". " + it.value.trim().capitalize()}.joinToString(" ")
