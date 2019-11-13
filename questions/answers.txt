@@ -569,3 +569,5 @@
 514~C~Gsutil mb, Gsutil is the command line utility used to work with cloud storage.The mb command is used to create a new bucket in cloud storage.
 
 515~B~The startup script is executed every time an instance is started. By stopping an instance and launching it again will start it on a host resulting in execution of startup script. see link: https://cloud.google.com/compute/docs/startupscript and https://storage.googleapis.com/gcp-exam-images/gcp-exam-q-515.PNG
+
+516~B~Is correct: allAuthenticatedUsers will allow any Gmail or Cloud Identity supported authenticated user to access the ﬁle.

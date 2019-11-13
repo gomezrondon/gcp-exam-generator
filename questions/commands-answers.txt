@@ -85,3 +85,7 @@
 85~D E B A C F~Gcloud compute disks snapshot instance-1 --snapshot-names=snapshot-1
 
 86~E F C A B D~Gcloud iam roles create viewer-role --project [PROJECT_ID] --file role-definition.yaml
+
+87~A B C D~Gcloud iam roles describe roles/[role-name]
+
+88~B A C~Gcloud compute regions list

@@ -190,6 +190,8 @@ class GenerateQuestionService{
                     .read(question)
             textIO.dispose()
 
+            response = formatAnswers(response)
+
             LOG.info("$question \n")
             LOG.info("Your Response: ($response) \n")
 

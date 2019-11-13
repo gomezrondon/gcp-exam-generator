@@ -84,3 +84,5 @@
 84~How to create an unmanaged instance group? \n Hint: U V W unmanaged Y [INSTANCE_GROUP_NAME] A. Compute B. [INSTANCE_GROUP_NAME] C. Gcloud D. Unmanaged E. Create F. Instance-groups
 85~After setting your project as default, \n How to create a snapshot of a instance disk? \n Hint: U V W X Y Z --zone=us-central1-a A. Snapshot B. Disks C. Instance-1 D. Gcloud E. Compute F. --snapshot-names=snapshot-1
 86~How to create an IAM role? \n example: gcloud U V W X Y Z --file role-definition.yaml A. Viewer-role B. --project C. Create D. [PROJECT_ID] E. Iam F. Roles
+87~How to list all permissions of a role? \n example: gcloud W X Y Z A. Iam B. Roles C. Describe D. Roles/[role-name]
+88~How to list regions ? \n example: gcloud X Y Z A. Regions B. Compute C. List

@@ -10,28 +10,25 @@ object work{
 
         fileName(
               //  "questions.txt"
-        "commands-questions.txt"
+       "commands-questions.txt"
         )
 
         question(
                 """
-How to create an IAM role? \n
-example: gcloud U V W X Y Z --file role-definition.yaml
+how to list regions ? \n
+example: gcloud X Y Z
             """
         )
 
         options( """
-A* viewer-role
-B* --project
-C* create
-D* [PROJECT_ID]
-E* iam
-F* roles
+A* regions
+B* compute
+C* list
+
              """)
 
         answer( """
-           
-E F C A B D* gcloud iam roles create viewer-role --project [PROJECT_ID] --file role-definition.yaml
+B A C* gcloud compute regions list
          
             """)
     }
