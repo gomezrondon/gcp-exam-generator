@@ -86,3 +86,5 @@
 86~How to create an IAM role? \n example: gcloud U V W X Y Z --file role-definition.yaml A. Viewer-role B. --project C. Create D. [PROJECT_ID] E. Iam F. Roles
 87~How to list all permissions of a role? \n example: gcloud W X Y Z A. Iam B. Roles C. Describe D. Roles/[role-name]
 88~How to list regions ? \n example: gcloud X Y Z A. Regions B. Compute C. List
+89~How to create a custom role with 2 permissions? , set the correct order of each command: \n example: gcloud T U V W X Y Z "compute.instances.create,compute.instances.delete" A. Create B. [PROJECT-ID] C. --project D. Roles E. [CUSTOM-ROLE-NAME] F. --permissions G. Iam
+90~How to add a User with role compute.instanceAdmin to a Project? , set the correct order of each command: \n example: gcloud V W X Y Z --role=roles/compute.instanceAdmin A. --member B. User:xx@gmail.com C. Add-iam-policy-binding D. [PROJECT-ID] E. Projects

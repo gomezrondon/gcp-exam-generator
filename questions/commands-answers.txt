@@ -86,3 +86,7 @@
 86~E F C A B D~gcloud iam roles create viewer-role --project [PROJECT_ID] --file role-definition.yaml
 87~A B C D~gcloud iam roles describe roles/[role-name]
 88~B A C~gcloud compute regions list
+
+89~G D A E C B F~Gcloud iam roles create [CUSTOM-ROLE-NAME] --project [PROJECT-ID] --permissions "compute.instances.create,compute.instances.delete"
+
+90~E C D A B~Gcloud projects add-iam-policy-binding [PROJECT-ID] --member user:xx@gmail.com --role=roles/compute.instanceAdmin
