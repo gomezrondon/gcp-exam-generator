@@ -53,3 +53,9 @@ tasks.register<Copy>("copyJar") {
 	from(file("$buildDir/libs/gcp-exam-generator-1.5.6-SNAPSHOT.jar"))
 	into(file("C:\\temp\\test\\gcp_exam_generator"))
 }
+
+tasks.register<Copy>("copyQ") {
+	dependsOn("build")
+	from(file("/questions"))
+	into(file("C:\\temp\\test\\gcp_exam_generator\\questions"))
+}

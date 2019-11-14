@@ -203,7 +203,7 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
             Select number of Questions: 5, 10, 20 ...: 
         """.trimIndent()
 
-        println(text)
+        print(text)
         LOG.info(text);
 
         val numberOption = readLine().toString().toLowerCase()

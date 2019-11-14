@@ -160,6 +160,7 @@ class GenerateQuestionService{
     fun askQuestions(questions: MutableList<Question>):MutableList<String> {
         var responses: MutableList<String> = mutableListOf<String>()
 
+        val textIO: TextIO = TextIoFactory.getTextIO()
 
         questions.forEachIndexed { index,  qton ->
             var text = StringBuilder()
@@ -183,12 +184,12 @@ class GenerateQuestionService{
             val question = text.append("Response?: ").toString()
            // var response = readLine()?.let { formatAnswers(it) }
 
-            val textIO: TextIO = TextIoFactory.getTextIO()
+
             var response = textIO.newStringInputReader()
                     //.withDefaultValue("1")
                     //.withPattern(regexPattern)
                     .read(question)
-            textIO.dispose()
+
 
             response = formatAnswers(response)
 
@@ -202,6 +203,8 @@ class GenerateQuestionService{
             println("")
             LOG.info("\n")
         }
+
+        textIO.dispose()
 
         return responses
     }
