@@ -20,15 +20,17 @@ private fun mainProcess() {
 }
 
 
-fun randomnizeString(text: String): List<String> {
+fun randomizeString(text: String): List<String> {
+
+    val prepList = text.split("""\s""".toRegex()).filter { !it.startsWith("%") }
 
     val charRange = 'A'..'Z'
-    val tempList = text.split("""\s""".toRegex()).toMutableList()
+    val tempList = prepList.toMutableList()
     val alphabet = charRange.map { it }.take(tempList.size).toList()
 
     var tempOrder = alphabet.map { it.toString() }.toMutableList()
 
-    val normalList = text.split("""\s""".toRegex())
+    val normalList = prepList
             .mapIndexed { index, word ->
              //   val random = randomWithOutRepetition(tempList)
                 val newOrder = randomWithOutRepetition(tempOrder)

@@ -8,7 +8,7 @@ object work2{
         texto(
 
                 """
-grant view access to files on a bucket	| gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
+list billing accounts	| %gcloud beta          billing accounts %list
 
                     
                 """.trim()
@@ -35,13 +35,14 @@ class QuestionBuilder2{
     var texto:String= ""
 
     fun texto(texto: String) {
-        this.texto =  texto
+
+        this.texto =  texto.replace("""\s{1,}""".toRegex(), " ")
     }
 
     fun build() {
 //List all buckets and files |	gsutil ls, gsutil ls -lh gs://<bucket-name>
 
-       val splitHalf = this.texto.split("""\n""".toRegex())
+       val splitHalf = this.texto .split("""\n""".toRegex())
                .filter { it.isNotEmpty() }
                 .map { "How to ${it.trim()}" }
                 .map { splitList(it) }
@@ -49,8 +50,9 @@ class QuestionBuilder2{
         val lista =
                 splitHalf
                 .map { it.toMutableList() }
+
                 .map { val formula = it.get(1).trim().replace("""\n""".toRegex()," ")
-                    val newFormula = randomnizeString(formula)
+                    val newFormula = randomizeString(formula)
                     it.set(1, newFormula.joinToString("\n"))
                     it
                 }.forEach {
@@ -83,18 +85,41 @@ class QuestionBuilder2{
 
                                     }.joinToString(" ")+ "* "
 
-                        val correctAnswer =    tempStep.map {
+  /*                      val correctAnswer =    tempStep.map {
                                 val split = splitList(it)
                                 val values = split.get(2)
                                 values
                             }.joinToString(" ")
+*/
+
+                            val correctAnswer = splitHalf.get(0).get(1).replace("%","") //second part
 
 
-                            println(part1)
+
+                            val cAnswerList = splitHalf.get(0).get(1).split("""\s""".toRegex())
+                            val charRange = 'A'..'Z'
+                            val alphabet = charRange.map { it }.takeLast(cAnswerList.size).toList()
+
+                            val maskAnwser = cAnswerList.mapIndexed { index, word ->
+                                if (word.startsWith("%")) {
+                                    word.replace("%","")
+                                } else {
+                                    alphabet.get(index)
+                                }
+                            }.joinToString(" ")
+
+                           // println("Mask Question: $maskAnwser")
+
+
+                            println(part1 + " , set the correct order of each command: \\n example: $maskAnwser")
                             println(listOptions)
                             println(" ")
                             println(correctOpt +" "+correctAnswer )
                             println(" ")
+
+
+
+
 
                         }
 
