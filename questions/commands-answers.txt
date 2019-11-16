@@ -89,3 +89,13 @@
 89~G D A E C B F~gcloud iam roles create [CUSTOM-ROLE-NAME] --project [PROJECT-ID] --permissions "compute.instances.create,compute.instances.delete"
 90~E C D A B~gcloud projects add-iam-policy-binding [PROJECT-ID] --member user:xx@gmail.com --role=roles/compute.instanceAdmin
 91~C A B~gcloud beta billing accounts list
+92~A B C E D~Gcloud <globla-flag> <service/product> <group/area> <command> <flag> <parameters>
+93~C A B~Gcloud config configurations create [new-config]  Also related: Gcloud config configurations activate [new-config]
+94~B A~Gcloud config list
+95~C B D A~Gcloud compute instances stop [instance-name] --zone [zone]
+
+96~C A B~Gcloud compute machine-types list
+
+97~B C A~Gcloud compute ssh [instance-name] --zone=us-central1-a
+
+98~B C A~Curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/
