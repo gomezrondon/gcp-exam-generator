@@ -76,7 +76,7 @@
 76~D B C A~gcloud compute images list
 77~A C B D~gcloud container clusters list
 78~C A D E B~gcloud container clusters get-credentials <cluster-name>
-79~gcloud sql instances list
+76~D B C A~gcloud compute images list
 80~A D C B~gcloud compute backend-services list
 81~A B C D~gcloud compute http-health-checks list
 82~D A B C~gcloud compute url-maps list
