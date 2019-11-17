@@ -87,7 +87,7 @@
 87~A B C D~gcloud iam roles describe roles/[role-name]
 88~B A C~gcloud compute regions list
 89~G D A E C B F~gcloud iam roles create [CUSTOM-ROLE-NAME] --project [PROJECT-ID] --permissions "compute.instances.create,compute.instances.delete"
-90~E C D A B~gcloud projects add-iam-policy-binding [PROJECT-ID] --member user:xx@gmail.com --role=roles/compute.instanceAdmin
+90~E C D A B~gcloud projects add-iam-policy-binding [PROJECT-ID] --member user:xx@gmail.com --role=roles/compute.instanceAdmin, see also: remove-iam-policy-binding
 91~C A B~gcloud beta billing accounts list
 92~A B C E D~Gcloud <globla-flag> <service/product> <group/area> <command> <flag> <parameters>
 93~C A B~Gcloud config configurations create [new-config]  Also related: Gcloud config configurations activate [new-config]
@@ -99,3 +99,9 @@
 97~B C A~Gcloud compute ssh [instance-name] --zone=us-central1-a
 
 98~B C A~Curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/
+
+99~A B C D E~Gcloud beta compute instances add-iam-policy-binding [instance-name] --role=roles/compute.instanceAdmin --member user:xx@gmail.com
+
+100~J I B H F G K A E C D~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=1000 --network=[vpc-name] --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=[network-tag]
+
+101~I J B H E C G F D A~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
