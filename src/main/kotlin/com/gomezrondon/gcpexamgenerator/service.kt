@@ -135,8 +135,7 @@ class GenerateQuestionService{
     }
 
     private fun randomizeList(list: List<String>, randonize: Boolean):List<String>  {
-        val charRange = 'A'..'Z'
-        val optionsList =  charRange.map { it.toString() }.toList()
+        val optionsList = getAlfabetList()
 
         var tempList = list.map { it.split(".").get(0) }.toMutableList()
         var randomOptionList = list.toMutableList()
@@ -156,6 +155,7 @@ class GenerateQuestionService{
 
         return randomOptionList
     }
+
 
     fun askQuestions(questions: MutableList<Question>):MutableList<String> {
         var responses: MutableList<String> = mutableListOf<String>()

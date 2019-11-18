@@ -571,3 +571,29 @@
 515~B~The startup script is executed every time an instance is started. By stopping an instance and launching it again will start it on a host resulting in execution of startup script. see link: https://cloud.google.com/compute/docs/startupscript and https://storage.googleapis.com/gcp-exam-images/gcp-exam-q-515.PNG
 
 516~B~Is correct: allAuthenticatedUsers will allow any Gmail or Cloud Identity supported authenticated user to access the ﬁle.
+
+517~B~Kubectl get nodes and kubectl describe node NODE_NAME
+
+518~B~Compute Engine instances and Amazon Elastic Compute Cloud (EC2) instances
+
+519~B~Check if agent is sending data to the correct project
+
+520~A ~A managed Spark and Hadoop service
+
+521~D ~Enabling Private Google Access
+
+522~D ~Network monitoring, forensics, real—time security analysis, and expense optimization
+
+523~A ~Components
+
+524~D ~A scalable, fully managed enterprise data warehouse solution
+
+525~D~When billed for instance hours, you should see the appropriate multiple of instance hours, so you were billed for four F1 hours to equal one F4 hour.
+
+526~A~The necessary Google Cloud Platform scope to interact with Stackdriver Monitoring
+
+527~C~RUN gcloud datastore export gs://datastore-backup/backupOOl
+
+528~C~Secrets
+
+529~D~For ingress you specify the source filter whereas for egress you specify the destination filter.

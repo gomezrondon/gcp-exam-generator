@@ -18,7 +18,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 515
+        variable == 528
     }
 
     @Test
@@ -34,7 +34,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt","","").size()
         then:
-        variable ==515
+        variable ==528
     }
 
     @Test
@@ -44,7 +44,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt", start,"").size()
         then:
-        variable == 283
+        variable == 296
     }
 
     @Test
@@ -52,7 +52,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 90
+        variable == 101
     }
 
 
@@ -71,12 +71,12 @@ class TestService extends Specification {
     def "testing getSpecificQuestions method"() {
         setup:
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
-        def numQuestionsList = [441, 505]
+        def numQuestionsList = [441, 505, 529]
         when:"execute the method with a set of questions"
         List<Question> questions = service.getSpecificQuestions(questionsList, numQuestionsList)
         then:
-        questions.size() == 2
-        questions.getAt("id") == [441, 505]
+        questions.size() == 3
+        questions.getAt("id") == [441, 505, 529]
     }
 
 

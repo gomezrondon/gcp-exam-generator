@@ -1,6 +1,7 @@
 package com.gomezrondon.gcpexamgenerator.dsl
 
 import com.gomezrondon.gcpexamgenerator.entities.txtQuestion
+import com.gomezrondon.gcpexamgenerator.getAlfabetList
 import java.io.File
 
 
@@ -9,26 +10,27 @@ object work{
     var build = createCommandQuestion{
 
         fileName(
-              //  "questions.txt"
-       "commands-questions.txt"
+                "questions.txt"
+       //"commands-questions.txt"
         )
 
         question(
                 """
-how to list regions ? \n
-example: gcloud X Y Z
+What is the difference between specifying an ingress rule in comparison to specifying an egress rule?
+
+
             """
         )
 
         options( """
-A* regions
-B* compute
-C* list
-
+*For ingress you specify the destination filter whereas for egress you specify the source filter.
+*For ingress you specify the destination IP ranges whereas for egress you specify the source IP range.
+*For ingress you don't need specification whereas for egress you specify the source limit.
+*For ingress you specify the source filter whereas for egress you specify the destination filter.
              """)
 
         answer( """
-B A C* gcloud compute regions list
+d*For ingress you specify the source filter whereas for egress you specify the destination filter.
          
             """)
     }
@@ -62,16 +64,26 @@ class QuestionBuilder{
     }
 
     fun options(options: String) {
+
+        val optionsList = getAlfabetList()
+
         var temp = mutableMapOf<String, String>()
          options.trim()
                 .replace("""\n""".toRegex(), " ")
                 .replace("""(\s){1,}""".toRegex(), " ")
-                .split("""(?=[a-z-A-z]\*)""".toRegex(RegexOption.MULTILINE))
+                .split("""(?=([a-z-A-z]|\s)\*)""".toRegex(RegexOption.MULTILINE))
                 .filter { !it.isNullOrEmpty() }
                 .map { it.capitalize() }
-                .forEach {
+                .forEachIndexed { index, it ->
                     val split = it.split("*")
-                    temp.put(split.get(0), split.get(1))
+
+                   val letter =  if (split.get(0).trim().isNullOrEmpty()) {
+                       optionsList.get(index)
+                    }else{
+                       split.get(0)
+                   }
+
+                    temp.put(letter, split.get(1))
                 }
 
         this.option = temp
