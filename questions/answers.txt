@@ -597,3 +597,35 @@
 528~C~Secrets
 
 529~D~For ingress you specify the source filter whereas for egress you specify the destination filter.
+
+530~B~The Master is created by Kubernetes Engine as part of the interface that controls the cluster.
+
+531~A~Yes. It improves availability because if one zone fails, the others can pick up the work.
+
+532~C~Kubernetes Engine
+
+533~A~Ctoud Storage Nearline. Google Cloud Storage Nearline is a low—cost. highly durable storage service for storing infrequently. link:https://cloud.google,com/storage/docs/storage-classes
+
+534~A~BigTable. link: https://cloud.google.com/bigtable/docs/performance
+
+535~B~Each local SSD is 375 GB in size. but you can attach up to eight local SSD devices for 3 TB of total local SSD storage space per instance. If a resource is not available, you won't be able to create new resources of that type. even if you still have remaining quota in your region or project. Read more about it here: https://cloud.google.com/compute/docs/disks/local-ssd
+
+536~A ~'gcloud container clusters resize' with the desired number of nodes.
+
+537~B~Snapshot was taken on a running VM. It is never recommended by Google to create a snapshot of running because this might corrupt data. You must always stop the instance and take a snapshot. Link: https://cloud.google.com/compute/docs/disks/create-snapshots
+
+538~B~This is a reserved IP range hence cannot be used. The IP range 172.17.0.0/16 is reserved for docker bridge network. Any Cloud SQL instances created with an IP in that range will be unreachable. Connections from any IP within that range to Cloud SQL instances using private IP will fail.
+
+539~C~Type. Bandwidth. Execution Time and Invocations. Link: https://cloud.google.com/products/calculator/
+
+540~D~Kubectl autoscale rc foo --min=1 --max=1o --cpu-percent=80 Link: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale see also: kubectl autoscale deployment foo --min=2 --max=10
+
+541~B~SSD Persistent Disk supports upto 15000-60000 IOPS per instance. Standard Persistent Disk supports upto 3000 IOPS. SCSI supports upto 400000 IOPS. NVMe supports upto 680000 IOPS
+
+542~B~App Engine Admin Link: https://cloud.google.com/appengine/docs/standard/python/roles
+
+543~B~Storage.objects.setIamPolicy = Update object ACLs. storage.objects.update = Update object metadata, excluding ACLs. link: https://cloud.google.com/storage/docs/access-control/iam-permissions
+
+544~C ~Cost Table Link: https://cloud.google.com/billing/docs/how-to/cost-table
+
+545~B D~Us and eu. Link: https://cloud.google.com/storage/docs/locations
