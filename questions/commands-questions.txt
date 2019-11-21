@@ -50,7 +50,6 @@
 50~How to Show instance info? A. "<project-name>" B. gcloud C. Compute D. "<instance-name>" E. --project F. Instances G. "us-west2-a" H. Describe I. --zone
 51~How to Stop an instance? A. Instance-2 B. Instances C. Compute D. gcloud E. Stop
 52~How to Start an instance? A. Start B. Instances C. Compute D. gcloud E. Instance-2
-53~How to Create an instance? A. Image-1 B. --zone C. Vm1 D. Instances E. F1-micro F. Compute G. gcloud H. "<zone>" I. Create J. --tags K. --machine-type L. Test M. --image
 54~How to SSH to instance? A. --project B. gcloud C. Ssh D. "<zone-name>" E. "<instance-name>" F. --zone G. "<project-name>" H. Compute
 55~How to Download files? A. --zone B. Example-instance:-/REMOTE-DIR C. gcloud D. Copy-files E. -/LOCAL-DIR F. Us-central1-a G. Compute
 56~How to Upload files? A. Compute B. Example-instance:-/REMOTE-DIR C. Us-central1-a D. gcloud E. -/LOCAL-FILE-1 F. Copy-files G. --zone
@@ -71,7 +70,7 @@
 71~How to List all firewall rules? A. Compute B. gcloud C. Firewall-rules D. List
 72~How to List all forwarding rules? \n example: gcloud X Y Z A. Forwarding-rules B. List C. Compute
 73~How to Describe one firewall rule? A. Firewall-rules B. Compute C. Describe D. gcloud E. <rule-name>
-74~How to Create one firewall rule? A. gcloud B. tcp:9200 tcp:3306 D. --allow E. [rule-name] F. Firewall-rules G. --network H. Create I. [network-name] J. Compute
+74~How to Create one firewall rule? , set the correct order of each command: \n example: ~gcloud R S T U V W X tcp:9200 tcp:3306 A. [firewall-rule-name] B. Firewall-rules C. Create D. --network E. [network-name] F. Compute G. --allow
 75~How to Update one firewall rule? A. [network-name] B. Firewall-rules C. --network D. Tcp:9200 Tcp:9300 E. Compute F. Update G. [rule-name] H. --allow I. gcloud
 76~How to List all images? A. List B. Compute C. Images D. gcloud
 77~How to List all container clusters? A. gcloud B. Clusters C. Container D. List
@@ -99,3 +98,4 @@
 99~How to attaching a policy to an vm instance? , set the correct order of each command: \n example: gcloud S T U V [instance-name] X --member user:xx@gmail.com A. Beta B. Compute C. Instances D. Add-iam-policy-binding E. --role=roles/compute.instanceAdmin
 100~How to create a firewall rule to allow ssh traffic (from anywhere) to an instances with a network tag? , set the correct order of each command: \n example: gcloud I J K L M --direction= O --priority= Q --network=[vpc-name] --action= T --rules= V --source-ranges= X --target-tags= Z A. ALLOW B. Firewall-rules C. 0.0.0.0/0 D. [network-tag] E. Tcp:22 F. [fire-wall-rule-name] G. INGRESS H. Create I. --project=[project-id] J. Compute K. 1000
 101~How to create a firewall rule to allow a frontend instance (with a service account) ping a backend instance (with a service account)? , set the correct order of each command: \n example: gcloud J K L M N --direction= P --priority=2500 --network=[vpc-name] --action= T --rules= V --source-service-accounts= X --target-service-accounts= Z A. Back-end-sa@[project-id].iam.gserviceaccount.com B. Firewall-rules C. INGRESS D. Front-end-sa@[project-id].iam.gserviceaccount.com E. [fire-wall-rule-name] F. Icmp G. ALLOW H. Create I. Compute J. --project=[project-id]
+102~How to Create an instance with a tag? , set the correct order of each command: \n example: gcloud O P Q R --image T --tags V W [zone-name] --machine-type Z A. Instances B. --zone C. Compute D. Create E. [instance-name] F. [tag-name] G. F1-micro H. [image-name]

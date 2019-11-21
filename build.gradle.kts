@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.gomezrondon"
-version = "1.5.6-SNAPSHOT"
+version = "1.5.7-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 configurations {
@@ -50,7 +50,7 @@ tasks.withType<KotlinCompile> {
 
 tasks.register<Copy>("copyJar") {
 	dependsOn("build")
-	from(file("$buildDir/libs/gcp-exam-generator-1.5.6-SNAPSHOT.jar"))
+	from(file("$buildDir/libs/gcp-exam-generator-1.5.7-SNAPSHOT.jar"))
 	into(file("C:\\temp\\test\\gcp_exam_generator"))
 }
 

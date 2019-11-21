@@ -50,7 +50,6 @@
 50~B C F H D E A I G~gcloud compute instances describe "<instance-name>" --project "<project-name>" --zone "us-west2-a"
 51~D C B E A~gcloud compute instances stop instance-2
 52~D C B A E~gcloud compute instances start instance-2
-53~G F D I C M A J L B H K E~gcloud compute instances create vm1 --image image-1 --tags test --zone "<zone>" --machine-type f1-micro
 54~B H C A G F D E~gcloud compute ssh --project "<project-name>" --zone "<zone-name>" "<instance-name>"
 55~C G D B E A F~gcloud compute copy-files example-instance:-/REMOTE-DIR -/LOCAL-DIR --zone us-central1-a
 56~D A F E B G C~gcloud compute copy-files -/LOCAL-FILE-1 example-instance:-/REMOTE-DIR --zone us-central1-a
@@ -71,7 +70,7 @@
 71~B A C D~gcloud compute firewall-rules list
 72~C A B~gcloud compute forwarding-rules list
 73~D B A C E~gcloud compute firewall-rules describe <rule-name>
-74~A J F H E G I D B~gcloud compute firewall-rules create [rule-name] --network [network-name] --allow tcp:9200 tcp:3306
+74~F B C A D E G~gcloud compute firewall-rules create [firewall-rule-name] --network [network-name] --allow tcp:9200 tcp:3306
 75~I E B F G C A H D~gcloud compute firewall-rules update [rule-name] --network [network-name] --allow tcp:9200 tcp:9300
 76~D B C A~gcloud compute images list
 77~A C B D~gcloud container clusters list
@@ -105,3 +104,4 @@
 100~J I B H F G K A E C D~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=1000 --network=[vpc-name] --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=[network-tag]
 
 101~I J B H E C G F D A~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
+102~C A D E H F B G~Gcloud compute instances create [instance-name] --image [image-name] --tags [tag-name] --zone [zone-name] --machine-type f1-micro
