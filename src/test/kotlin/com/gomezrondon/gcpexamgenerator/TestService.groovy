@@ -188,14 +188,15 @@ class TestService extends Specification {
     def "testing give me a list of questions depending on the percentage of each level"() {
         setup:
         def questionsList = service.loadQuestions("questions.txt","answers.txt")
-        def percentageList = [new questionContext(60,"e"), new questionContext(40,"h")]
+        def percentageList = [new questionContext(40,"e"), new questionContext(30,"m"), new questionContext(30,"h")]
         def numQuestion = 20
         when:
         def questions = service.getPercentageListOfQuestions(numQuestion, percentageList, questionsList)
         then:
         questions.size() == numQuestion
-        questions.findAll {it.getLevel() == "e"}.size() == 12
-        questions.findAll {it.getLevel() == "h"}.size() == 8
+        questions.findAll {it.getLevel() == "e"}.size() == 8
+        questions.findAll {it.getLevel() == "m"}.size() == 6
+        questions.findAll {it.getLevel() == "h"}.size() == 6
 
 
     }
