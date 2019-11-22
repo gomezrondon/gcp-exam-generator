@@ -138,5 +138,48 @@ class TestService extends Specification {
         results.get(3).trim() == "Score: 100.0%"
     }
 
+/*
+    @Test
+    def "testing give me 20% of easy questions"() {
+        setup:
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def percentage = 20
+        def level = "e"
+        when:
+        def questions = service.getNumfromPorcentage(percentage,level, questionsList)
+        then:
+        questions == 108
+    }
+*/
+
+
+    @Test
+    def "testing give me 6 easy random questions"() {
+        setup:
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def numQuestion = 6
+        def level = "e"
+        when:
+        def questions = service.getRandomQuestionsByLevel(numQuestion,level, questionsList)
+        then:
+        questions.size() == numQuestion
+        questions.findAll {it.getLevel() == level} != null
+
+    }
+
+
+    @Test
+    def "testing give me 7 hard random questions"() {
+        setup:
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def numQuestion = 7
+        def level = "h"
+        when:
+        def questions = service.getRandomQuestionsByLevel(numQuestion,level, questionsList)
+        then:
+        questions.size() == numQuestion
+        questions.findAll {it.getLevel() == level} != null
+
+    }
 
 }

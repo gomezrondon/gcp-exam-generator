@@ -13,12 +13,29 @@ class GenerateQuestionService{
 
     val LOG: Logger = LoggerFactory.getLogger(GenerateQuestionService::class.java);
 
+     fun getNumfromPorcentage(percentage: Int, level: String,listOfQuestions: List<Question>): Int {
+        val totalNumQuestions = listOfQuestions.filter { it.level == level }.size
+        val numQuestions = totalNumQuestions.times(percentage).div(100)
+        return numQuestions
+    }
+
+     fun getRandomQuestionsByLevel(numQuestion: Int, level: String, listOfQuestions: List<Question>): List<Question> {
+        //  val listOfQuestions: List<Question> = service.listOfQuestions(questionsfileName, answerfileName)
+         val filterByLevel = listOfQuestions.filter { it.level == level }
+
+         val charRange = 1..numQuestion
+         val resultList  = charRange.map { filterByLevel.random()}.toList()
+
+        return resultList
+    }
+
+
     fun loadQuestions(questionsfileName:String, answerfileName:String): List<Question> {
         val readLines = File("""questions${File.separator}$questionsfileName""").readLines()
                 .filter { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
                 .map { it.split("~") }
-                .map { Question(it[0].toInt(),it[1].trim())}
+                .map { Question(it[0].toInt(),it[1].trim(),it[2].trim())}
 
 
         addAnswersToQuestions(answerfileName, readLines)
@@ -40,7 +57,7 @@ class GenerateQuestionService{
                 .filter { it.isNotEmpty() }
                 .filter { !it.startsWith("---") }
                 .map { it.split("~") }
-                .map { Question(it[0].toInt(),it[1].trim())}
+                .map { Question(it[0].toInt(),it[1].trim(),it[2].trim())}
 
         addAnswersToQuestions(answerfileName, take)
 
@@ -259,13 +276,13 @@ class GenerateQuestionService{
 }
 
 
-data class Question(val id:Int, var question: String, var answer:String="N/A", var explanation:String="N/A"){
+data class Question(val id:Int, var level: String, var question: String, var answer:String="N/A", var explanation:String="N/A"){
 
     fun remapOptions(randList: List<String>) {
         // "new position A|C old position "
-        val mapResponse = this.answer.split(" ").map { pepe ->
+        val mapResponse = this.answer.split(" ").map { value ->
             val newPosition = randList.map { it.toLowerCase() }
-                    .filter { valor -> valor.split("|").get(1) == pepe }
+                    .filter { valor -> valor.split("|").get(1) == value }
                     .map { valor -> valor.split("|").get(0) }
                     .first()
             newPosition
