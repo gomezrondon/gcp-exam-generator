@@ -1,5 +1,6 @@
 package com.gomezrondon.gcpexamgenerator
 
+import com.gomezrondon.gcpexamgenerator.entities.questionContext
 import org.beryx.textio.TextIO
 import org.beryx.textio.TextIoFactory
 import org.slf4j.Logger
@@ -13,11 +14,28 @@ class GenerateQuestionService{
 
     val LOG: Logger = LoggerFactory.getLogger(GenerateQuestionService::class.java);
 
-     fun getNumfromPorcentage(percentage: Int, level: String,listOfQuestions: List<Question>): Int {
+    fun getPercentageListOfQuestions(total: Int, percentageList: List<questionContext>, listOfQuestions: List<Question>): List<Question> {
+
+        val resultList = percentageList.flatMap {
+            val numfromPercentage = getNumfromPercentage(it.percent, it.level, total)
+            val list: List<Question> = getRandomQuestionsByLevel(numfromPercentage, it.level, listOfQuestions)
+            list
+        }
+
+        return resultList
+    }
+
+
+    fun getNumfromPercentage(percentage: Int, level: String, total: Int): Int {
+        val numQuestions = total.times(percentage).div(100)
+        return numQuestions
+    }
+
+/*     fun getNumfromPercentage(percentage: Int, level: String, listOfQuestions: List<Question>): Int {
         val totalNumQuestions = listOfQuestions.filter { it.level == level }.size
         val numQuestions = totalNumQuestions.times(percentage).div(100)
         return numQuestions
-    }
+    }*/
 
      fun getRandomQuestionsByLevel(numQuestion: Int, level: String, listOfQuestions: List<Question>): List<Question> {
         //  val listOfQuestions: List<Question> = service.listOfQuestions(questionsfileName, answerfileName)

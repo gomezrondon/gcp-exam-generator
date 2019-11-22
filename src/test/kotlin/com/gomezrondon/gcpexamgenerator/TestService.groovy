@@ -1,5 +1,6 @@
 package com.gomezrondon.gcpexamgenerator
 
+import com.gomezrondon.gcpexamgenerator.entities.questionContext
 import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -181,5 +182,24 @@ class TestService extends Specification {
         questions.findAll {it.getLevel() == level} != null
 
     }
+
+
+    @Test
+    def "testing give me a list of questions depending on the percentage of each level"() {
+        setup:
+        def questionsList = service.loadQuestions("questions.txt","answers.txt")
+        def percentageList = [new questionContext(60,"e"), new questionContext(40,"h")]
+        def numQuestion = 20
+        when:
+        def questions = service.getPercentageListOfQuestions(numQuestion, percentageList, questionsList)
+        then:
+        questions.size() == numQuestion
+        questions.findAll {it.getLevel() == "e"}.size() == 12
+        questions.findAll {it.getLevel() == "h"}.size() == 8
+
+
+    }
+
+
 
 }
