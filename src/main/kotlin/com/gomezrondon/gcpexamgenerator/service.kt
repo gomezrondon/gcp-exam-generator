@@ -16,13 +16,23 @@ class GenerateQuestionService{
 
     fun getPercentageListOfQuestions(total: Int, percentageList: List<questionContext>, listOfQuestions: List<Question>): List<Question> {
 
+        var mutaList = mutableListOf<Question>()
+
         val resultList = percentageList.flatMap {
             val numfromPercentage = getNumfromPercentage(it.percent, it.level, total)
             val list: List<Question> = getRandomQuestionsByLevel(numfromPercentage, it.level, listOfQuestions)
             list
         }
 
-        return resultList
+        mutaList.addAll(resultList)
+
+        val diff = total - resultList.size
+        if (diff > 0) {
+            val missingQuestions = generateQuestion(listOfQuestions as MutableList<Question>, diff);
+            mutaList.addAll(missingQuestions)
+        }
+
+        return mutaList
     }
 
 
@@ -41,8 +51,7 @@ class GenerateQuestionService{
         //  val listOfQuestions: List<Question> = service.listOfQuestions(questionsfileName, answerfileName)
          val filterByLevel = listOfQuestions.filter { it.level == level }
 
-         val charRange = 1..numQuestion
-         val resultList  = charRange.map { filterByLevel.random()}.toList()
+         val resultList = generateQuestion(filterByLevel as MutableList<Question>, numQuestion, true)
 
         return resultList
     }

@@ -92,18 +92,11 @@
 93~C A B~Gcloud config configurations create [new-config]  Also related: Gcloud config configurations activate [new-config]
 94~B A~Gcloud config list
 95~C B D A~Gcloud compute instances stop [instance-name] --zone [zone]
-
 96~C A B~Gcloud compute machine-types list
-
 97~B C A~Gcloud compute ssh [instance-name] --zone=us-central1-a
-
 98~B C A~Curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/
-
 99~A B C D E~Gcloud beta compute instances add-iam-policy-binding [instance-name] --role=roles/compute.instanceAdmin --member user:xx@gmail.com
-
 100~J I B H F G K A E C D~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=1000 --network=[vpc-name] --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=[network-tag]
-
 101~I J B H E C G F D A~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
 102~C A D E H F B G~Gcloud compute instances create [instance-name] --image [image-name] --tags [tag-name] --zone [zone-name] --machine-type f1-micro
-
 103~E B C A D~Gcloud functions deploy helloGet --runtime nodejs8 --trigger-http

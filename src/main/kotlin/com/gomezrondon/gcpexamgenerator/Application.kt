@@ -1,5 +1,6 @@
 package com.gomezrondon.gcpexamgenerator
 
+import com.gomezrondon.gcpexamgenerator.entities.questionContext
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
@@ -11,7 +12,9 @@ import java.time.format.DateTimeFormatter
 
 
 @SpringBootApplication
-class Application(private val service:GenerateQuestionService):CommandLineRunner{
+class Application(private val service:GenerateQuestionService, private val levelsOfDifficulty:List<List<questionContext>>):CommandLineRunner{
+
+
 
     val LOG: Logger = LoggerFactory.getLogger(Application::class.java);
 
@@ -58,7 +61,6 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
             println(text)
             LOG.info(text)
 
-            val isRandom = true
             val keepOrder = false
             val questionsfileName = "questions.txt"
             val answerfileName = "answers.txt"
@@ -68,114 +70,114 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
             when (numberOption) {
                 "1" -> {
                     val questionsList = service.loadQuestions(questionsfileName, answerfileName)
-                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom, keepOrder)
+                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, keepOrder)
                     println(output)
                     LOG.info(output)
                 }
                 "1.1" -> {
                     start += 1
                     ends += 2
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.2" -> {
                     start += 2
                     ends += 3
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
 
                 "1.3" -> {
                     start += 3
                     ends += 4
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.4" -> {
                     start += 5
                     ends += 6
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.5" -> {
                     start += 5
                     ends += 6
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.6" -> {
                     start += 6
                     ends += 7
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.7" -> {
                     start += 7
                     ends += 8
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.8" -> {
                     start += 8
                     ends += 9
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.9" -> {
                     start += 9
                     ends += 10
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.10" -> {
                     start += 10
                     ends += 11
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.11" -> {
                     start += 11
                     ends += 12
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.12" -> {
                     start += 12
                     ends += 13
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.13" -> {
                     start += 13
                     ends += 14
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.14" -> {
                     start += 14
                     ends += 15
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.15" -> {
                     start += 15
                     ends += 16
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.16" -> {
                     start += 16
                     ends += 17
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.17" -> {
                     start += 17
                     ends += 18
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
                 "1.18" -> {
                     start += 18
                     ends += "custom questions"
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
 
                 "2" -> {
                     start += "custom questions"
                     ends += "continuara"
-                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, isRandom, keepOrder)
+                    generateChapterQuestions(questionsfileName, answerfileName, start, ends, keepOrder)
                 }
 
                 "3" -> {
-                    val isRandom = true
+                    val keepOrder = true
                     val questionsfileName = "commands-questions.txt"
                     val answerfileName = "commands-answers.txt"
                     val questionsList: List<Question> = service.loadQuestions(questionsfileName, answerfileName)
-                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom)
+                    val output = generateQuestions(questionsList, questionsfileName, answerfileName, keepOrder)
                     println(output)
                     LOG.info(output)
                 }
@@ -191,14 +193,15 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
 
 
 
-    private fun generateChapterQuestions(questionsfileName: String, answerfileName: String, start: String, ends: String, isRandom: Boolean, keepOrder: Boolean) {
+    private fun generateChapterQuestions(questionsfileName: String, answerfileName: String, start: String, ends: String,  keepOrder: Boolean) {
         val questionsList = service.loadSubSetQuestions(questionsfileName, answerfileName, start, ends)
-        val output = generateQuestions(questionsList, questionsfileName, answerfileName, isRandom, keepOrder)
+        val output = generateQuestionsOriginal(questionsList, questionsfileName, answerfileName, keepOrder)
         println(output)
         LOG.info(output)
     }
 
-    private fun generateQuestions(questionsList: List<Question>, questionsfileName: String, answerfileName: String, isRandom:Boolean, keepOrder:Boolean=true): String {
+
+    private fun generateQuestionsOriginal(questionsList: List<Question>, questionsfileName: String, answerfileName: String,  keepOrder:Boolean=true): String {
 
         var text = """
             There are ${questionsList.size} Questions! 
@@ -214,7 +217,60 @@ class Application(private val service:GenerateQuestionService):CommandLineRunner
         println(text)
         LOG.info(text)
 
-        var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt(), isRandom);
+        var questions = service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt());
+        val responses = service.askQuestions(questions)
+        val results = service.evaluateResults(questions, responses, keepOrder)
+
+        //printing results
+
+        val output = results.joinToString("\n")
+        return output
+    }
+
+    private fun generateQuestions(questionsList: List<Question>, questionsfileName: String, answerfileName: String, keepOrder:Boolean=true): String {
+
+        var text = """
+            There are ${questionsList.size} Questions! 
+            
+            Select number of Questions: 5, 10, 20 ...: 
+        """.trimIndent()
+
+        print(text)
+        LOG.info(text);
+
+        var numberOption = readLine().toString().toLowerCase()
+        text = "Number Of questions: $numberOption \n"
+        println(text)
+        LOG.info(text)
+
+        val total =numberOption.toInt()
+
+        var questions = if (total >= 10) {
+
+            text = """
+            Set level of difficulty
+                0 = Easy
+                1 = Medium
+                2 = Hard
+                3 = Random
+            R?: 
+        """.trimIndent()
+
+            print(text)
+            LOG.info(text);
+
+            val setLevel = readLine().toString().toLowerCase()
+            text = "You set Level: $setLevel \n"
+            println(text)
+            LOG.info(text)
+
+            val percentageList = levelsOfDifficulty.get(setLevel.toInt())
+             service.getPercentageListOfQuestions(numberOption.toInt(), percentageList, questionsList).toMutableList()
+        } else {
+            service.generateQuestion(questionsList as MutableList<Question>, numberOption.toInt());
+        }
+
+
         val responses = service.askQuestions(questions)
         val results = service.evaluateResults(questions, responses, keepOrder)
 

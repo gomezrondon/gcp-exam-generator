@@ -139,20 +139,6 @@ class TestService extends Specification {
         results.get(3).trim() == "Score: 100.0%"
     }
 
-/*
-    @Test
-    def "testing give me 20% of easy questions"() {
-        setup:
-        def questionsList = service.loadQuestions("questions.txt","answers.txt")
-        def percentage = 20
-        def level = "e"
-        when:
-        def questions = service.getNumfromPorcentage(percentage,level, questionsList)
-        then:
-        questions == 108
-    }
-*/
-
 
     @Test
     def "testing give me 6 easy random questions"() {
@@ -197,8 +183,6 @@ class TestService extends Specification {
         questions.findAll {it.getLevel() == "e"}.size() == 8
         questions.findAll {it.getLevel() == "m"}.size() == 6
         questions.findAll {it.getLevel() == "h"}.size() == 6
-
-
     }
 
 
