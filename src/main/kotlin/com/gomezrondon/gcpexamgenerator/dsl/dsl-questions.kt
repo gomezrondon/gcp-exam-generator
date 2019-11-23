@@ -14,23 +14,27 @@ object work{
        //"commands-questions.txt"
         )
 
+        level(
+                " m  ".trim()
+        )
         question(
                 """
-What is the difference between specifying an ingress rule in comparison to specifying an egress rule?
-
-
+"Read-only access to all application configuration and settings.
+Write access to module-level and version-level settings. Cannot deploy a new version."
+   
             """
         )
 
         options( """
-*For ingress you specify the destination filter whereas for egress you specify the source filter.
-*For ingress you specify the destination IP ranges whereas for egress you specify the source IP range.
-*For ingress you don't need specification whereas for egress you specify the source limit.
-*For ingress you specify the source filter whereas for egress you specify the destination filter.
+*App Engine Admin
+*App Engine Viewer
+*App Engine Code Viewer
+*App Engine Deployer
+*App Engine Service Admin
              """)
 
         answer( """
-d*For ingress you specify the source filter whereas for egress you specify the destination filter.
+e*App Engine Service Adminy
          
             """)
     }
@@ -51,9 +55,14 @@ class QuestionBuilder{
     var question:String?= null
     var option: Map<String, String> = LinkedHashMap()
     var answer: Map<String, String> = LinkedHashMap()
+    var level: String="m"
 
     fun fileName(file: String) {
         this.file = file
+    }
+
+    fun level(level: String) {
+     this.level = level
     }
 
     fun question(question:String){
@@ -110,7 +119,7 @@ class QuestionBuilder{
         question = question?.replace("\n","")
         val options = option.map { it.key.toUpperCase() + ". " + it.value.trim().capitalize()}.joinToString(" ")
 
-        val qText = lastCount.toString() + "~" + question + " "+ options
+        val qText = lastCount.toString() + "~" +level+ "~" +question + " "+ options
 
         val answer = answer.map { it.key.toUpperCase() + "~" + it.value.trim().capitalize()}.joinToString()
         val aText = lastCount.toString() + "~" + answer
