@@ -100,3 +100,7 @@
 101~I J B H E C G F D A~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
 102~C A D E H F B G~Gcloud compute instances create [instance-name] --image [image-name] --tags [tag-name] --zone [zone-name] --machine-type f1-micro
 103~E B C A D~Gcloud functions deploy helloGet --runtime nodejs8 --trigger-http
+
+104~B A C~Gsutil rewrite -s [STORAGE_CLASS] gs://Reports-PDF/[OBJECT_NAME]
+
+105~D A B C~Gcloud functions deploy FUNCTION_NAME --set-env-vars FOO=bar,BAZ=boo

@@ -649,3 +649,15 @@
 554~D~App Engine Deployer
 
 555~E~App Engine Service Admin
+
+556~A~28, see: https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed
+
+557~B~Gcloud compute ssh username@bastion-host, The correct syntax is gcloud compute ssh + [USERNAME]+@[SERVERNAME]. From public end, you can only connect to bastion host, hence you need to connect to bastion host first and then connect to application instance. see: https://cloud.google.com/compute/docs/instances/connecting-to-instance
+
+558~B~Gsutil rewrite -s [STORAGE_CLASS] gs://Reports-PDF/[OBJECT_NAME], see link: https://cloud.google.com/storage/docs/gsutil/commands/rewrite
+
+559~B~Gradual traffic migration between the versions running in flexible environment is not supported. see link: https://cloud.google.com/appengine/docs/flexible/go/migrating-traffic
+
+560~C~Environment Variables, see link: https://cloud.google.com/functions/docs/env-var
+
+561~C~Is correct: CIDR not should overlap, and /16 will give a wide range of network aliases. see link: https://cloud.google.com/vpc/docs/configure-alias-ip-ranges
