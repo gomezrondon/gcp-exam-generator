@@ -104,3 +104,15 @@
 104~B A C~Gsutil rewrite -s [STORAGE_CLASS] gs://Reports-PDF/[OBJECT_NAME]
 
 105~D A B C~Gcloud functions deploy FUNCTION_NAME --set-env-vars FOO=bar,BAZ=boo
+
+106~B A C~Gcloud sql connect [instance-id] --user=root
+
+107~C B A D~Gcloud compute networks list
+
+108~E C B D A~Gcloud compute networks subnets list --sort-by= NETWORK
+
+109~C D G B F A E~Gcloud compute instances create [instance-name] --zone=us-central1-c --machine-type=n1-standard-1 --subnet=[subnet-name-us]
+
+110~D A C B~Kubectl create -f deployment-file.yaml
+
+111~A D C E B~Kubectl scale deployment [deployment-name] --replicas=3

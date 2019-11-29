@@ -102,3 +102,9 @@
 103~m~How to Create a fuction helloGet triggered by and endpoint? , set the correct order of each command: \n example: gcloud U V W --runtime Y Z A. Nodejs8 B. Deploy C. HelloGet D. --trigger-http E. Functions
 104~h~How to change the storage class of an object? , set the correct order of each command: \n example: gsutil W X Y gs://Reports-PDF/[OBJECT_NAME] A. -s B. Rewrite C. [STORAGE_CLASS]
 105~h~How to create a function passing multiple environment variables? , set the correct order of each command: \n example: gcloud V W FUNCTION_NAME Y Z A. Deploy B. --set-env-vars C. FOO=bar,BAZ=boo D. Functions
+106~e~How to connect to the sql DB? , set the correct order of each command: \n example: gcloud W X Y --user=root A. Connect B. Sql C. [instance-id]
+107~e~How to list the networks of a project? , set the correct order of each command: \n example: W X Y Z A. Networks B. Compute C. Gcloud D. List
+108~m~How to list the available VPC subnets (sorted by VPC network)? , set the correct order of each command: \n example: gcloud U V W X Y NETWORK A. --sort-by= B. Subnets C. Networks D. List E. Compute
+109~h~How to Create a instance with a specific subnet? , set the correct order of each command: \n example: gcloud Q R S T --zone= V --machine-type= X Y [subnet-name-us] A. N1-standard-1 B. [instance-name] C. Compute D. Instances E. --subnet= F. Us-central1-c G. Create
+110~e~How to deploy to a kubernetes cluster? , set the correct order of each command: \n example: W X Y Z A. Create B. Deployment-file.yaml C. -f D. Kubectl
+111~m~How to scale the numbers of replicas? , set the correct order of each command: \n example: V W X Y Z A. Kubectl B. --replicas=3 C. Deployment D. Scale E. [deployment-name]
