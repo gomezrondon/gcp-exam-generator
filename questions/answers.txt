@@ -661,3 +661,9 @@
 560~C~Environment Variables, see link: https://cloud.google.com/functions/docs/env-var
 
 561~C~Is correct: CIDR not should overlap, and /16 will give a wide range of network aliases. see link: https://cloud.google.com/vpc/docs/configure-alias-ip-ranges
+
+562~A~Compute Admin
+
+563~B~Compute Image User
+
+564~C~Compute Instance Admin (v1)

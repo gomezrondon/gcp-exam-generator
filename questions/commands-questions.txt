@@ -108,3 +108,14 @@
 109~h~How to Create a instance with a specific subnet? , set the correct order of each command: \n example: gcloud Q R S T --zone= V --machine-type= X Y [subnet-name-us] A. N1-standard-1 B. [instance-name] C. Compute D. Instances E. --subnet= F. Us-central1-c G. Create
 110~e~How to deploy to a kubernetes cluster? , set the correct order of each command: \n example: W X Y Z A. Create B. Deployment-file.yaml C. -f D. Kubectl
 111~m~How to scale the numbers of replicas? , set the correct order of each command: \n example: V W X Y Z A. Kubectl B. --replicas=3 C. Deployment D. Scale E. [deployment-name]
+112~e~How to Delete a snapshot? , set the correct order of each command: \n example: gcloud W X Y Z A. Disks B. Delete C. DISK_NAME D. Compute
+113~h~How to create a managed instance group (IG) with 4 instances? , set the correct order of each command: \n example: gcloud P Q R S [ig-name] U us-central1-a --template X --size Z A. Compute B. 4 C. Managed D. Instance-groups E. --zone F. Create G. [template-name]
+114~e~How to List nodes in a kubernetes cluster? , set the correct order of each command: \n example: X Y Z A. Nodes B. Kubectl C. Get
+115~e~How to List pods in a kubernetes cluster? , set the correct order of each command: \n example: X Y Z A. Get B. Kubectl C. Pods
+116~e~How to View node details? , set the correct order of each command: \n example: W X Y Z A. Describe B. NODE_NAME C. Nodes D. Kubectl
+117~e~How to View pod details? , set the correct order of each command: \n example: W X Y Z A. Kubectl B. Pods C. POD_NAME D. Describe
+118~e~How to View services details? , set the correct order of each command: \n example: W X Y Z A. Services B. SERVICE_NAME C. Describe D. Kubectl
+119~e~How to List images in the container registry? , set the correct order of each command: \n example: gcloud X Y Z A. Images B. Container C. List
+120~m~How to Add/Remove a node? , set the correct order of each command: \n example: gcloud T U V [cluster-name] X Y us-east4-c A. --num-nodes=2 B. Resize C. --zone= D. Clusters E. Container
+121~e~How to list off the deployments? , set the correct order of each command: \n example: X Y Z A. Deployments B. Get C. Kubectl
+122~m~How to Create an on-demand backup? , set the correct order of each command: \n example: gcloud U V W X INSTANCE_NAME --async A. Create B. --instance= C. Sql D. Backups

@@ -113,6 +113,28 @@
 
 109~C D G B F A E~Gcloud compute instances create [instance-name] --zone=us-central1-c --machine-type=n1-standard-1 --subnet=[subnet-name-us]
 
-110~D A C B~Kubectl create -f deployment-file.yaml
+110~D A C B~Kubectl create -f deployment-file.yaml , see also: kubectl apply -f manifest.yaml
 
 111~A D C E B~Kubectl scale deployment [deployment-name] --replicas=3
+
+112~D A B C~Gcloud compute disks delete DISK_NAME
+
+113~A D C F E G B~Gcloud compute instance-groups managed create [ig-name] --zone us-central1-a --template [template-name] --size 4
+
+114~B C A~Kubectl get nodes
+
+115~B A C~Kubectl get pods
+
+116~D A C B~Kubectl describe nodes NODE_NAME
+
+117~A D B C~Kubectl describe pods POD_NAME
+
+118~D C A B~Kubectl describe services SERVICE_NAME
+
+119~B A C~Gcloud container images list
+
+120~E D B A C~Gcloud container clusters resize [cluster-name] --num-nodes=2 --zone=us-east4-c
+
+121~C B A~Kubectl get deployments
+
+122~C D A B~Gcloud sql backups create --instance=INSTANCE_NAME --async

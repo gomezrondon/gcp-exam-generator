@@ -13,13 +13,18 @@ class TestService extends Specification {
 
     @Autowired
     private final GenerateQuestionService service
+    private final Integer totalQuestions= 563
+    private final Integer totalChapter11= 331
+    private final Integer totalCommands= 121
+
+
 
     @Test
     def "testing loading questions"() {
         when:
         def variable = service.loadQuestions("questions.txt","answers.txt").size()
         then:
-        variable == 560
+        variable == totalQuestions
     }
 
     @Test
@@ -35,7 +40,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt","","").size()
         then:
-        variable ==560
+        variable ==totalQuestions
     }
 
     @Test
@@ -45,7 +50,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadSubSetQuestions("questions.txt","answers.txt", start,"").size()
         then:
-        variable == 328
+        variable == totalChapter11
     }
 
     @Test
@@ -53,7 +58,7 @@ class TestService extends Specification {
         when:
         def variable = service.loadQuestions("commands-questions.txt","commands-answers.txt").size()
         then:
-        variable == 110
+        variable == totalCommands
     }
 
 
