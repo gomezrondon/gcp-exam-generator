@@ -52,11 +52,11 @@
 52~D C B A E~gcloud compute instances start instance-2
 54~B H C A G F D E~gcloud compute ssh --project "<project-name>" --zone "<zone-name>" "<instance-name>"
 55~C G D B E A F~gcloud compute copy-files example-instance:-/REMOTE-DIR -/LOCAL-DIR --zone us-central1-a
-56~D A F E B G C~gcloud compute copy-files -/LOCAL-FILE-1 example-instance:-/REMOTE-DIR --zone us-central1-a
+56~A E C D B~gcloud compute copy-files -/LOCAL-FILE-1 [instance-name]:-/REMOTE-DIR --zone us-central1-a
 57~C A D B~gcloud compute disks list
 58~A C D B~gcloud compute disk-types list
 59~A C D B~gcloud compute snapshots list
-60~H C B D G A F I E~gcloud compute disks snapshot <diskname> --snapshotname <name1> --zone us-central1-a
+60~C B A E F D~gcloud compute disks snapshot <disk-name> --snapshotname <snaphot-name> --zone us-central1-a
 61~A B D C~gcloud compute networks list
 62~E B A D F C G~gcloud compute networks describe <network-name> --format json
 63~D E B A C~gcloud compute networks create <network-name>
@@ -80,7 +80,7 @@
 81~A B C D~gcloud compute http-health-checks list
 82~D A B C~gcloud compute url-maps list
 83~B E C D A~gsutil iam ch allUsers:objectViewer gs://[bucket]/[folder]
-84~C A F D E B~gcloud compute instance-groups unmanaged create [INSTANCE_GROUP_NAME]
+84~A C B D~gcloud compute instance-groups unmanaged create [INSTANCE_GROUP_NAME]
 85~E C D A B~gcloud compute disks snapshot [instance name] --snapshot-names=snapshot-1 --zone=us-central1-a --storage-location=us-central1
 86~E F C A B D~gcloud iam roles create viewer-role --project [PROJECT_ID] --file role-definition.yaml
 87~A B C D~gcloud iam roles describe roles/[role-name]
@@ -88,38 +88,38 @@
 89~G D A E C B F~gcloud iam roles create [CUSTOM-ROLE-NAME] --project [PROJECT-ID] --permissions "compute.instances.create,compute.instances.delete"
 90~E C D A B~gcloud projects add-iam-policy-binding [PROJECT-ID] --member user:xx@gmail.com --role=roles/compute.instanceAdmin, see also: remove-iam-policy-binding
 91~C A B~gcloud beta billing accounts list
-92~A B C E D~Gcloud <globla-flag> <service/product> <group/area> <command> <flag> <parameters>
-93~C A B~Gcloud config configurations create [new-config]  Also related: Gcloud config configurations activate [new-config]
-94~B A~Gcloud config list
-95~C B D A~Gcloud compute instances stop [instance-name] --zone [zone]
-96~C A B~Gcloud compute machine-types list
-97~B C A~Gcloud compute ssh [instance-name] --zone=us-central1-a
+92~A B C E D~gcloud <globla-flag> <service/product> <group/area> <command> <flag> <parameters>
+93~C A B~gcloud config configurations create [new-config]  Also related: gcloud config configurations activate [new-config]
+94~B A~gcloud config list
+95~C B D A~gcloud compute instances stop [instance-name] --zone [zone]
+96~C A B~gcloud compute machine-types list
+97~B C A~gcloud compute ssh [instance-name] --zone=us-central1-a
 98~B C A~Curl -H "Metadata-Flavor:Google" metadata.google.internal/computeMetadata/v1/
-99~A B C D E~Gcloud beta compute instances add-iam-policy-binding [instance-name] --role=roles/compute.instanceAdmin --member user:xx@gmail.com
-100~J I B H F G K A E C D~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=1000 --network=[vpc-name] --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=[network-tag]
-101~I J B H E C G F D A~Gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
-102~C A D E H F B G~Gcloud compute instances create [instance-name] --image [image-name] --tags [tag-name] --zone [zone-name] --machine-type f1-micro
-103~E B C A D~Gcloud functions deploy helloGet --runtime nodejs8 --trigger-http
+99~A B C D E~gcloud beta compute instances add-iam-policy-binding [instance-name] --role=roles/compute.instanceAdmin --member user:xx@gmail.com
+100~J I B H F G K A E C D~gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=1000 --network=[vpc-name] --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0 --target-tags=[network-tag]
+101~I J B H E C G F D A~gcloud compute --project=[project-id] firewall-rules create [fire-wall-rule-name] --direction=INGRESS --priority=2500 --network=[vpc-name] --action=ALLOW --rules=icmp --source-service-accounts=front-end-sa@[project-id].iam.gserviceaccount.com --target-service-accounts=back-end-sa@[project-id].iam.gserviceaccount.com
+102~C A D E H F B G~gcloud compute instances create [instance-name] --image [image-name] --tags [tag-name] --zone [zone-name] --machine-type f1-micro
+103~E B C A D~gcloud functions deploy helloGet --runtime nodejs8 --trigger-http
 
 104~B A C~Gsutil rewrite -s [STORAGE_CLASS] gs://Reports-PDF/[OBJECT_NAME]
 
-105~D A B C~Gcloud functions deploy FUNCTION_NAME --set-env-vars FOO=bar,BAZ=boo
+105~D A B C~gcloud functions deploy FUNCTION_NAME --set-env-vars FOO=bar,BAZ=boo
 
-106~B A C~Gcloud sql connect [instance-id] --user=root
+106~B A C~gcloud sql connect [instance-id] --user=root
 
-107~C B A D~Gcloud compute networks list
+107~C B A D~gcloud compute networks list
 
-108~E C B D A~Gcloud compute networks subnets list --sort-by= NETWORK
+108~E C B D A~gcloud compute networks subnets list --sort-by= NETWORK
 
-109~C D G B F A E~Gcloud compute instances create [instance-name] --zone=us-central1-c --machine-type=n1-standard-1 --subnet=[subnet-name-us]
+109~C D G B F A E~gcloud compute instances create [instance-name] --zone=us-central1-c --machine-type=n1-standard-1 --subnet=[subnet-name-us]
 
 110~D A C B~Kubectl create -f deployment-file.yaml , see also: kubectl apply -f manifest.yaml
 
 111~A D C E B~Kubectl scale deployment [deployment-name] --replicas=3
 
-112~D A B C~Gcloud compute disks delete DISK_NAME
+112~D A B C~gcloud compute disks delete DISK_NAME
 
-113~A D C F E G B~Gcloud compute instance-groups managed create [ig-name] --zone us-central1-a --template [template-name] --size 4
+113~A D C F E G B~gcloud compute instance-groups managed create [ig-name] --zone us-central1-a --template [template-name] --size 4
 
 114~B C A~Kubectl get nodes
 
@@ -131,10 +131,10 @@
 
 118~D C A B~Kubectl describe services SERVICE_NAME
 
-119~B A C~Gcloud container images list
+119~B A C~gcloud container images list
 
-120~E D B A C~Gcloud container clusters resize [cluster-name] --num-nodes=2 --zone=us-east4-c
+120~E D B A C~gcloud container clusters resize [cluster-name] --num-nodes=2 --zone=us-east4-c
 
 121~C B A~Kubectl get deployments
 
-122~C D A B~Gcloud sql backups create --instance=INSTANCE_NAME --async
+122~C D A B~gcloud sql backups create --instance=INSTANCE_NAME --async

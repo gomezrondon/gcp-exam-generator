@@ -1,6 +1,6 @@
-1~m~If you want to deploy a template, set the correct order of each command \n (example:  V W X Y [template name] Z [yaml file]) A. Create B. Gcloud C. --config D. Deployment-manager E. Deployments
-2~m~How to set a zone in the environment?, set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. Gcloud B. Config C. Set D. Compute/zone E. europe-west1-c
-3~m~How to set a region in the environment? , set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. Gcloud B. Config C. Set D. Compute/region E. europe-west1
+1~m~If you want to deploy a template, set the correct order of each command \n (example:  V W X Y [template name] Z [yaml file]) A. Create B. gcloud C. --config D. Deployment-manager E. Deployments
+2~m~How to set a zone in the environment?, set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. gcloud B. Config C. Set D. Compute/zone E. europe-west1-c
+3~m~How to set a region in the environment? , set the correct order of each command: \n (example: W X Y Z europe-west1-c ) A. gcloud B. Config C. Set D. Compute/region E. europe-west1
 4~e~How to validate default configuration? , set the correct order of each command: \n (example: X Y Z ) A. gcloud B. Config C. List
 5~e~How to list instances? , set the correct order of each command: \n (example: X Y Z list) A. gcloud B. Compute C. Instances
 6~e~How to create a kubernetes cluster? , set the correct order of each command: \n (example: gcloud X Y Z [CLUSTER-NAME] --zone [zone]) A. Container B. Clusters C. Create
@@ -41,7 +41,7 @@
 41~m~How to Set the active account? A. Set B. Config C. Account D. <ACCOUNT> E. gcloud
 42~m~How to Auth to GCP Container Registry? A. Auth B. Configure-docker C. gcloud
 43~m~How to Revoke previous generated credential? A. <application-default> B. gcloud C. Auth D. Revoke
-44~m~How to Make all files readable using ACL? A. gsutil B. Gs://<bucket-name>/ C. -a D. Public-read E. -m F. Acl G. -R H. Set
+44~h~How to Make all files readable using ACL? A. gsutil B. Gs://<bucket-name>/ C. -a D. Public-read E. -m F. Acl G. -R H. Set
 45~e~How to Config auth? A. Config B. gsutil C. -a
 46~m~How to Grant bucket access? A. Ch B. Iam C. Gs://<bucket-name> D. gsutil E. User:denny@gmail.com:objectCreator,objectViewer
 47~h~How to Remove bucket access? A. gsutil B. Iam C. -d D. User:denny@gmail.com:objectCreator,objectViewer E. Ch F. Gs://<bucket-name>
@@ -52,11 +52,11 @@
 52~m~How to Start an instance? A. Start B. Instances C. Compute D. gcloud E. Instance-2
 54~h~How to SSH to instance? A. --project B. gcloud C. Ssh D. "<zone-name>" E. "<instance-name>" F. --zone G. "<project-name>" H. Compute
 55~e~How to Download files? A. --zone B. Example-instance:-/REMOTE-DIR C. gcloud D. Copy-files E. -/LOCAL-DIR F. Us-central1-a G. Compute
-56~m~How to Upload files? A. Compute B. Example-instance:-/REMOTE-DIR C. Us-central1-a D. gcloud E. -/LOCAL-FILE-1 F. Copy-files G. --zone
+56~h~How to Upload files to an instance? , set the correct order of each command: \n example: gcloud U V W X Y us-central1-a A. Compute B. --zone C. -/LOCAL-FILE-1 D. [instance-name]:-/REMOTE-DIR E. Copy-files
 57~m~How to List all disks? A. Compute B. List C. gcloud D. Disks
 58~m~How to List all disk types? A. gcloud B. List C. Compute D. Disk-types
 59~m~How to List all snapshots? A. gcloud B. List C. Compute D. Snapshots
-60~h~How to Create snapshot? A. --snapshotname B. Disks C. Compute D. Snapshot E. Us-central1-a F. <name1> G. <diskname> H. gcloud I. --zone
+60~h~How to Create snapshot of a disk? , set the correct order of each command: \n example: gcloud S T U V W <snaphot-name> Y us-central1-a A. Snapshot B. Disks C. Compute D. --zone E. <disk-name> F. --snapshotname
 61~m~How to List all networks? A. gcloud B. Compute C. List D. Networks
 62~m~How to Detail of one network? A. Networks B. Compute C. --format D. Describe E. gcloud F. <network-name> G. Json
 63~m~How to Create network? A. Create B. Networks C. <network-name> D. gcloud E. Compute
@@ -80,7 +80,7 @@
 81~m~How to List all my health check endpoints? A. gcloud B. Compute C. Http-health-checks D. List
 82~m~How to List all URL maps? A. Compute B. Url-maps C. List D. gcloud
 83~m~How to grant view access to all files to everybody on a bucket? A. Gs://[bucket]/[folder] B. gsutil C. Ch D. AllUsers:objectViewer E. Iam
-84~m~How to create an unmanaged instance group? \n Hint: U V W unmanaged Y [INSTANCE_GROUP_NAME] A. Compute B. [INSTANCE_GROUP_NAME] C. gcloud D. Unmanaged E. Create F. Instance-groups
+84~m~How to create an unmanaged instance group? , set the correct order of each command: \n example: gcloud V W X Y [INSTANCE_GROUP_NAME] A. Compute B. Unmanaged C. Instance-groups D. Create
 85~m~After setting your project as default, \n How to create a snapshot of a instance disk? , set the correct order of each command: \n example: gcloud V W X Y Z --zone=us-central1-a --storage-location=us-central1 A. [instance name] B. --snapshot-names=snapshot-1 C. Disks D. Snapshot E. Compute
 86~m~How to create an IAM role? \n example: gcloud U V W X Y Z --file role-definition.yaml A. Viewer-role B. --project C. Create D. [PROJECT_ID] E. Iam F. Roles
 87~m~How to list all permissions of a role? \n example: gcloud W X Y Z A. Iam B. Roles C. Describe D. Roles/[role-name]
@@ -103,7 +103,7 @@
 104~h~How to change the storage class of an object? , set the correct order of each command: \n example: gsutil W X Y gs://Reports-PDF/[OBJECT_NAME] A. -s B. Rewrite C. [STORAGE_CLASS]
 105~h~How to create a function passing multiple environment variables? , set the correct order of each command: \n example: gcloud V W FUNCTION_NAME Y Z A. Deploy B. --set-env-vars C. FOO=bar,BAZ=boo D. Functions
 106~e~How to connect to the sql DB? , set the correct order of each command: \n example: gcloud W X Y --user=root A. Connect B. Sql C. [instance-id]
-107~e~How to list the networks of a project? , set the correct order of each command: \n example: W X Y Z A. Networks B. Compute C. Gcloud D. List
+107~e~How to list the networks of a project? , set the correct order of each command: \n example: W X Y Z A. Networks B. Compute C. gcloud D. List
 108~m~How to list the available VPC subnets (sorted by VPC network)? , set the correct order of each command: \n example: gcloud U V W X Y NETWORK A. --sort-by= B. Subnets C. Networks D. List E. Compute
 109~h~How to Create a instance with a specific subnet? , set the correct order of each command: \n example: gcloud Q R S T --zone= V --machine-type= X Y [subnet-name-us] A. N1-standard-1 B. [instance-name] C. Compute D. Instances E. --subnet= F. Us-central1-c G. Create
 110~e~How to deploy to a kubernetes cluster? , set the correct order of each command: \n example: W X Y Z A. Create B. Deployment-file.yaml C. -f D. Kubectl
